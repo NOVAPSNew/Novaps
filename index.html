@@ -1,369 +1,758 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaPS | Official App</title>
+
+    <title>NovaPS v1.2.0 | Sitio Oficial</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Iconos FontAwesome para mejor visualización -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+
         :root {
+
             --ps-blue: #0072CE;
+
+            --ps-light-blue: #00aaff;
+
             --ps-dark-blue: #003791;
-            --bg-dark: #0a0a0a;
-            --card-bg: #151515;
+
+            --bg-dark: #020205;
+
+            --card-bg: rgba(255, 255, 255, 0.03);
+
             --accent-orange: #ff8c00;
+
+            --accent-green: #2ecc71;
+
             --gold: #FFD700;
+
             --whatsapp-green: #25D366;
+
             --telegram-blue: #229ED9;
-            --error-red: #ff4b2b;
+
+            --glass: rgba(255, 255, 255, 0.03);
+
+            --glass-border: rgba(255, 255, 255, 0.08);
+
+            --neon-blue: #00d2ff;
+
         }
+
+
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+
+
         body {
+
             background-color: var(--bg-dark);
+
             color: white;
+
             font-family: 'Inter', sans-serif;
+
             line-height: 1.6;
+
             overflow-x: hidden;
+
         }
 
-        h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; letter-spacing: 1px; }
+
+
+        h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+
+
+
+        /* --- EFECTOS DE FONDO --- */
 
         .bg-glow {
+
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% -20%, var(--ps-dark-blue), transparent 60%);
-            z-index: -1; opacity: 0.4;
+
+            background:
+
+                radial-gradient(circle at 20% 30%, rgba(0, 114, 206, 0.15), transparent 40%),
+
+                radial-gradient(circle at 80% 70%, rgba(0, 55, 145, 0.2), transparent 40%);
+
+            z-index: -1;
+
         }
 
-        header { padding: 80px 20px 40px; text-align: center; }
-        .logo { font-size: 3.5rem; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; }
-        .logo span { color: var(--ps-blue); }
-        .version-tag {
-            display: inline-block;
-            background: var(--ps-blue);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.8rem;
+
+
+        .bg-dots {
+
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+
+            background-size: 30px 30px;
+
+            z-index: -1;
+
+        }
+
+
+
+        header { padding: 140px 20px 80px; text-align: center; position: relative; }
+
+
+
+        @keyframes float {
+
+            0% { transform: translateY(0px); }
+
+            50% { transform: translateY(-20px); }
+
+            100% { transform: translateY(0px); }
+
+        }
+
+
+
+        .logo {
+
+            font-size: 6rem;
+
             font-weight: 900;
-            margin-top: -10px;
-            vertical-align: middle;
+
+            margin-bottom: 5px;
+
+            filter: drop-shadow(0 0 40px rgba(0,114,206,0.4));
+
+            animation: float 6s ease-in-out infinite;
+
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .logo span { color: var(--ps-blue); text-shadow: 0 0 30px rgba(0,114,206,1); }
 
-        /* --- SECTIONS --- */
-        section { padding: 80px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .section-title { text-align: center; margin-bottom: 50px; color: var(--ps-blue); font-size: 2.2rem; text-transform: uppercase; }
 
-        /* --- HERO --- */
-        .hero { text-align: center; }
-        .hero p { color: #ccc; max-width: 750px; margin: 0 auto 50px; font-size: 1.1rem; }
 
-        .video-container {
+        .version-tag {
+
+            display: inline-block;
+
+            background: linear-gradient(90deg, var(--ps-blue), var(--neon-blue));
+
+            padding: 8px 25px;
+
+            border-radius: 50px;
+
+            font-size: 0.9rem;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
+            box-shadow: 0 0 30px rgba(0,114,206,0.5);
+
+            margin-bottom: 25px;
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+        }
+
+
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+
+
+        section { padding: 100px 0; }
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 100px;
+
+            color: #fff;
+
+            font-size: 2.5rem;
+
             position: relative;
-            background: #000;
-            aspect-ratio: 16/9;
-            border-radius: 20px;
+
+            letter-spacing: 4px;
+
+        }
+
+        .section-title::after {
+
+            content: ''; display: block; width: 80px; height: 5px; background: var(--ps-blue);
+
+            margin: 25px auto; border-radius: 10px;
+
+            box-shadow: 0 0 15px var(--ps-blue);
+
+        }
+
+
+
+        /* --- CARDS DE FUNCIONES --- */
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        .feature-card {
+
+            background: var(--glass);
+
+            backdrop-filter: blur(15px);
+
+            padding: 60px 40px;
+
+            border-radius: 40px;
+
+            border: 1px solid var(--glass-border);
+
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+            text-align: center;
+
+            position: relative;
+
             overflow: hidden;
-            border: 2px solid var(--ps-blue);
-            box-shadow: 0 0 40px rgba(0,114,206,0.2);
+
+        }
+
+        .feature-card:hover {
+
+            transform: translateY(-20px);
+
+            border-color: var(--neon-blue);
+
+            box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 20px rgba(0,210,255,0.2);
+
+            background: rgba(255,255,255,0.06);
+
+        }
+
+        .feature-card i { font-size: 3.5rem; color: var(--ps-blue); margin-bottom: 35px; transition: 0.3s; }
+
+        .feature-card:hover i { color: var(--neon-blue); transform: scale(1.1); }
+
+        .feature-card h3 { margin-bottom: 25px; font-size: 1.2rem; color: #fff; }
+
+        .feature-card p { color: #aaa; font-size: 1rem; line-height: 1.8; }
+
+
+
+        .new-badge {
+
+            position: absolute; top: 20px; right: 20px; background: var(--accent-orange);
+
+            color: white; padding: 5px 15px; border-radius: 12px;
+
+            font-size: 0.65rem; font-weight: 900; letter-spacing: 1px;
+
+            box-shadow: 0 0 15px rgba(255,140,0,0.4);
+
+        }
+
+
+
+        /* --- SCREENSHOTS --- */
+
+        .screenshot-grid {
+
+            display: flex;
+
+            gap: 20px;
+
+            justify-content: center;
+
+            overflow-x: auto;
+
+            padding: 20px 0;
+
+            scrollbar-width: none;
+
+        }
+
+        .screenshot-grid::-webkit-scrollbar { display: none; }
+
+        .screenshot-card {
+
+            min-width: 280px;
+
+            max-width: 280px;
+
+            aspect-ratio: 9/19;
+
+            background: #111;
+
+            border-radius: 40px;
+
+            border: 8px solid #1a1a1a;
+
+            overflow: hidden;
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+
             transition: 0.4s;
-            max-width: 850px;
-            margin: 0 auto;
+
         }
-        .video-container:hover { transform: scale(1.01); box-shadow: 0 0 60px rgba(0,114,206,0.4); }
 
-        .video-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            text-decoration: none; color: white; transition: 0.3s;
+        .screenshot-card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--ps-blue); }
+
+        .screenshot-card img { width: 100%; height: 100%; object-fit: cover; }
+
+
+
+        /* --- GALERÍA DE VIDEOS --- */
+
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
+
+        .video-box {
+
+            background: #000; border-radius: 35px; overflow: hidden; border: 1px solid var(--glass-border);
+
+            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); text-decoration: none; color: white;
+
+            position: relative;
+
         }
-        .video-overlay i { font-size: 4rem; margin-bottom: 20px; color: var(--ps-blue); }
-        .video-overlay:hover { background: rgba(0,0,0,0.3); }
 
-        /* --- BUTTONS --- */
-        .btn-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-        .btn {
-            padding: 18px 35px; border-radius: 14px; text-decoration: none;
-            font-weight: 800; transition: 0.3s; display: inline-flex; align-items: center; gap: 12px;
-            text-transform: uppercase; font-size: 0.9rem; border: none; cursor: pointer;
-        }
-        .btn-primary { background: var(--ps-blue); color: white; box-shadow: 0 8px 15px rgba(0,114,206,0.3); }
-        .btn-primary:hover { background: #0088ff; transform: translateY(-3px); }
+        .video-box:hover { border-color: var(--ps-blue); transform: scale(1.05); box-shadow: 0 0 40px rgba(0,114,206,0.3); }
 
-        .btn-secondary { background: #222; color: white; border: 1px solid #444; }
-        .btn-secondary:hover { background: #333; transform: translateY(-3px); }
+        .video-thumb {
 
-        .btn-wa { background: var(--whatsapp-green); color: white; box-shadow: 0 8px 15px rgba(37,211,102,0.2); }
-        .btn-wa:hover { background: #2ced71; transform: translateY(-3px); }
+            aspect-ratio: 16/9; background: #050505; display: flex; align-items: center; justify-content: center;
 
-        .btn-tg { background: var(--telegram-blue); color: white; box-shadow: 0 8px 15px rgba(34,158,217,0.2); }
-        .btn-tg:hover { background: #33aff0; transform: translateY(-3px); }
-
-        /* --- STEPS --- */
-        .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .step-card {
-            background: var(--card-bg); padding: 40px 30px; border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.05); text-align: left;
-            transition: 0.3s; position: relative; overflow: hidden;
-        }
-        .step-card:hover { border-color: var(--ps-blue); transform: translateY(-10px); }
-        .step-num {
-            position: absolute; top: -10px; right: -10px; font-size: 5rem;
-            font-weight: 900; color: rgba(255,255,255,0.03); font-family: 'Orbitron';
-        }
-        .step-icon { font-size: 2rem; color: var(--ps-blue); margin-bottom: 20px; display: block; }
-        .step-card h3 { color: white; margin-bottom: 12px; font-size: 1.1rem; text-transform: uppercase; }
-        .step-card p { font-size: 0.9rem; color: #999; line-height: 1.5; }
-
-        /* --- TROUBLESHOOTING --- */
-        .help-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 15px; }
-        @media (max-width: 500px) { .help-grid { grid-template-columns: 1fr; } }
-        .help-card {
-            background: #111; padding: 25px; border-radius: 18px;
-            border-left: 5px solid var(--accent-orange);
-            display: flex; gap: 20px; align-items: flex-start;
-            transition: 0.3s;
-        }
-        .help-card:hover { background: #161616; transform: scale(1.01); }
-        .help-card i { font-size: 1.5rem; color: var(--accent-orange); margin-top: 5px; width: 30px; text-align: center; }
-        .help-card h4 { font-size: 1rem; margin-bottom: 8px; color: #fff; text-transform: uppercase; }
-        .help-card p { font-size: 0.85rem; color: #aaa; }
-        .help-card code { background: #222; padding: 2px 6px; border-radius: 4px; color: var(--ps-blue); font-weight: bold; }
-
-        /* --- GOLD BANNER --- */
-        .gold-banner {
-            background: linear-gradient(135deg, #B8860B, #FFD700, #DAA520);
-            color: black; padding: 40px; border-radius: 24px; text-align: center;
-            margin-top: 50px; box-shadow: 0 15px 40px rgba(255,215,0,0.25);
             position: relative; overflow: hidden;
-        }
-        .gold-banner::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: rotate(45deg); animation: shine 4s infinite;
-        }
-        @keyframes shine { 0% { left: -100%; } 100% { left: 100%; } }
-        .gold-banner h3 { margin-bottom: 12px; font-weight: 900; font-size: 1.5rem; }
-        .gold-banner p { font-weight: 700; }
 
-        footer { padding: 60px; text-align: center; color: #555; font-size: 0.9rem; }
-        .social-footer { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
-        .social-footer a { color: #555; font-size: 1.5rem; transition: 0.3s; }
-        .social-footer a:hover { color: var(--ps-blue); }
+        }
 
-        @media (max-width: 600px) {
-            .logo { font-size: 2.8rem; }
+        .video-thumb i { font-size: 4rem; color: var(--ps-blue); z-index: 2; transition: 0.4s; }
+
+        .video-box:hover .video-thumb i { transform: scale(1.3); color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue); }
+
+        .video-thumb::after {
+
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+
+            background: linear-gradient(0deg, #000 0%, transparent 100%); opacity: 0.8;
+
+        }
+
+        .video-info { padding: 30px; text-align: center; }
+
+        .video-info h4 { font-size: 1rem; color: #fff; letter-spacing: 1px; }
+
+
+
+        /* --- BOTONES --- */
+
+        .btn-grid { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; margin-top: 60px; }
+
+        .btn {
+
+            padding: 24px 60px; border-radius: 25px; text-decoration: none;
+
+            font-weight: 900; transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1); display: inline-flex; align-items: center; gap: 15px;
+
+            text-transform: uppercase; font-size: 1.1rem; border: none; cursor: pointer;
+
+            letter-spacing: 2px;
+
+        }
+
+        .btn-primary {
+
+            background: linear-gradient(135deg, var(--ps-blue), var(--ps-dark-blue));
+
+            color: white;
+
+            box-shadow: 0 20px 40px rgba(0,114,206,0.4);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+        }
+
+        .btn-primary:hover {
+
+            transform: translateY(-10px) scale(1.05);
+
+            box-shadow: 0 30px 60px rgba(0,114,206,0.6);
+
+            filter: brightness(1.2);
+
+        }
+
+
+
+        .btn-wa { background: #128C7E; color: white; }
+
+        .btn-tg { background: #0088cc; color: white; }
+
+        .btn:hover { transform: translateY(-8px); }
+
+
+
+        /* --- NOVEDADES --- */
+
+        .changelog {
+
+            background: var(--glass); padding: 60px; border-radius: 50px;
+
+            border: 1px dashed var(--glass-border); max-width: 900px; margin: 0 auto;
+
+            backdrop-filter: blur(10px);
+
+        }
+
+        .changelog ul { list-style: none; }
+
+        .changelog li { margin-bottom: 25px; display: flex; align-items: center; gap: 25px; font-size: 1.1rem; color: #ccc; }
+
+        .changelog li i { color: var(--accent-green); font-size: 1.4rem; text-shadow: 0 0 10px rgba(46,204,113,0.5); }
+
+
+
+        /* --- PREGUNTAS FRECUENTES --- */
+
+        .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+
+        .faq-item { background: rgba(255,255,255,0.02); padding: 30px; border-radius: 25px; border: 1px solid var(--glass-border); }
+
+        .faq-item h4 { color: var(--ps-blue); margin-bottom: 10px; font-size: 1rem; }
+
+        .faq-item p { color: #888; font-size: 0.9rem; }
+
+
+
+        footer { padding: 120px 20px 80px; text-align: center; background: #000; border-top: 1px solid #111; }
+
+        .social-links { display: flex; justify-content: center; gap: 50px; margin-bottom: 50px; }
+
+        .social-links a { color: #666; font-size: 2.5rem; transition: 0.4s; }
+
+        .social-links a:hover { color: var(--neon-blue); transform: scale(1.3) rotate(8deg); filter: drop-shadow(0 0 15px var(--ps-blue)); }
+
+
+
+        @media (max-width: 768px) {
+
+            .logo { font-size: 4rem; }
+
+            .section-title { font-size: 2rem; }
+
             .btn { width: 100%; justify-content: center; }
-            .section-title { font-size: 1.6rem; }
-            .gold-banner { padding: 30px 20px; }
+
+            .changelog { padding: 40px 25px; }
+
         }
+
+
+
+        /* --- ANIMACIONES --- */
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        .animate { animation: fadeIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+
     </style>
+
 </head>
+
 <body>
+
     <div class="bg-glow"></div>
 
-    <header>
-        <div class="logo">NOVA<span>PS</span> <span class="version-tag">V1.1.0</span></div>
-        <p style="color: #666; margin-top: 10px; font-weight: bold;">OFICIAL WEBSITE | TU CONSOLA AL SIGUIENTE NIVEL</p>
+    <div class="bg-dots"></div>
+
+
+
+    <header class="animate">
+
+        <div class="version-tag">ACTUALIZACIÓN v1.2.0</div>
+
+        <div class="logo">NOVA<span>PS</span></div>
+
+        <p style="color: #888; font-weight: 900; letter-spacing: 6px; font-size: 0.9rem; text-transform: uppercase;">Tu consola al siguiente nivel</p>
+
     </header>
+
+
 
     <div class="container">
 
+
+
         <!-- HERO -->
-        <section class="hero" style="border:none; padding-bottom: 40px;">
-            <p>NovaPS revoluciona la forma en que instalas juegos. Actúa como un puente inteligente que captura enlaces <b>.pkg</b> (MediaFire, Akirabox, SuperPSX) y los envía directo a tu PS4 por WiFi. Olvida los USBs y el espacio en el celular.</p>
 
-            <div class="video-container">
-                <a href="https://drive.google.com/file/d/19KcZ6A7zSnAemD_BQS_oRfnmDNvqXwew/view?usp=drivesdk" target="_blank" class="video-overlay">
-                    <i class="fas fa-circle-play"></i>
-                    <h3>VER VIDEO TUTORIAL PASO A PASO</h3>
-                    <p style="margin-top:10px; font-size: 0.9rem; opacity: 0.8;">Corto, rápido y bien explicado.</p>
-                </a>
-            </div>
-        </section>
+        <section class="hero animate" style="padding-top: 0; text-align: center;">
 
-        <!-- INSTRUCCIONES MEJORADAS -->
-        <section>
-            <h2 class="section-title">Guía de Inicio Rápido</h2>
-            <div class="step-grid">
-                <div class="step-card">
-                    <div class="step-num">1</div>
-                    <i class="fas fa-gamepad step-icon"></i>
-                    <h3>Prepara la Consola</h3>
-                    <p>Activa el <b>HEN / GoldHEN</b> y abre la App <b>"Remote PKG Installer"</b>. Quédate dentro de la App mirando la TV; es obligatorio para recibir los datos.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">2</div>
-                    <i class="fas fa-wifi step-icon"></i>
-                    <h3>Configura la IP</h3>
-                    <p>En NovaPS Android, ve a <b>Configuración</b> y pulsa <b>"INICIAR RADAR"</b>. Si no la encuentra, escribe la IP de tu PS4 manualmente y pulsa el icono de conexión.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">3</div>
-                    <i class="fas fa-link step-icon"></i>
-                    <h3>Captura el Juego</h3>
-                    <p>Usa la <b>Store</b> o el <b>Navegador</b> integrado. Al dar clic en el botón de descarga del sitio web, NovaPS interceptará el link y lo enviará al instante.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">4</div>
-                    <i class="fas fa-list-check step-icon"></i>
-                    <h3>Monitorea el Envío</h3>
-                    <p>Aparecerá una notificación en tu PS4. No cierres el instalador en la consola hasta que la barra de descarga aparezca en el menú principal.</p>
-                </div>
-            </div>
-        </section>
+            <p style="color: #fff; font-size: 1.6rem; margin-bottom: 30px; font-weight: 300; letter-spacing: 1px;">¡La actualización más esperada!</p>
 
-        <!-- DESCARGAS -->
-        <section style="text-align: center;">
-            <h2 class="section-title">Zona de Descargas</h2>
+            <p style="color: #999; max-width: 900px; margin: 0 auto 70px; font-size: 1.2rem; line-height: 2.2;">NovaPS v1.2.0 ya está aquí. Instala tus juegos, gestiona tus archivos y mira TV directamente en tu PS4 sin necesidad de cables ni memorias USB.</p>
+
+
+
             <div class="btn-grid">
-                <a href="https://www.mediafire.com/file/488vj5z6nuijmn0/NOVAPSV1.1.0.apk/file" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-android"></i> Descargar NovaPS APK
+
+                <a href="https://www.mediafire.com/file/a9sblopzscjgq8y/NovaPSv1.2.0.apk/file" target="_blank" class="btn btn-primary">
+
+                    <i class="fas fa-download"></i> DESCARGAR APK v1.2.0
+
                 </a>
-                <a href="https://www.mediafire.com/file/8dnxa6x774xfwla/PS4_FLTZ00003_v1.02_%25281%2529.pkg/file" target="_blank" class="btn btn-secondary">
-                    <i class="fas fa-box-open"></i> RPI para PS4 (.pkg)
-                </a>
+
             </div>
+
         </section>
 
-        <!-- AYUDA / TROUBLESHOOTING AMPLIADO -->
-        <section style="border:none;">
-            <h2 class="section-title">Ayuda y Soporte Técnico</h2>
 
-            <div class="help-grid">
-                <div class="help-card">
-                    <i class="fas fa-tower-broadcast"></i>
-                    <div>
-                        <h4>¿Consola No Alcanzada o Error de Red?</h4>
-                        <p>Asegúrate de usar la misma señal WiFi. <b>Tip de Oro:</b> Apaga los datos móviles (4G/5G). A veces Android intenta enviar los datos por la red celular en lugar del WiFi local.</p>
-                    </div>
+
+        <!-- FUNCIONES -->
+
+        <section>
+
+            <h2 class="section-title">Nuevas Herramientas</h2>
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+
+                    <div class="new-badge">NUEVO</div>
+
+                    <i class="fas fa-folder-tree"></i>
+
+                    <h3>Explorador de Archivos</h3>
+
+                    <p>Entra al disco duro de tu PS4 desde el móvil. Sube, borra y organiza tus carpetas fácilmente con el nuevo modo FTP integrado.</p>
+
                 </div>
 
-                <div class="help-card">
-                    <i class="fas fa-plug"></i>
-                    <div>
-                        <h4>Prueba de "Puerto Abierto"</h4>
-                        <p>Escribe en Chrome desde tu móvil: <code>http://[IP-DE-TU-PS4]:12800</code>. Si no carga una página blanca con texto, el servidor de la consola está apagado. Reinicia el <b>RPI</b>.</p>
-                    </div>
+                <div class="feature-card">
+
+                    <div class="new-badge">POPULAR</div>
+
+                    <i class="fas fa-tv"></i>
+
+                    <h3>Televisión en tu PS4</h3>
+
+                    <p>Mira tus canales favoritos en la pantalla grande. Carga tus listas IPTV y disfrútalas directamente en el navegador de la consola.</p>
+
                 </div>
 
-                <div class="help-card">
-                    <i class="fas fa-hdd"></i>
-                    <div>
-                        <h4>Requisito de Espacio en Disco</h4>
-                        <p>Para instalar un PKG, necesitas el <b>DOBLE</b> de espacio libre. Si el juego pesa 20GB, asegúrate de tener al menos 40GB libres en el disco interno de tu PS4.</p>
-                    </div>
+                <div class="feature-card">
+
+                    <i class="fas fa-bolt"></i>
+
+                    <h3>Inyector de Payloads</h3>
+
+                    <p>Activa GoldHEN o envía archivos .bin a tu PS4 de forma inalámbrica. Compatible con detección automática para mayor comodidad.</p>
+
                 </div>
 
-                <div class="help-card">
-                    <i class="fas fa-shield-halved"></i>
-                    <div>
-                        <h4>Permisos de Android (Privacidad)</h4>
-                        <p>En los ajustes de tu móvil > Aplicaciones > NovaPS, activa los permisos de <b>"Dispositivos cercanos"</b> o <b>"Red Local"</b> para que la App pueda escanear tu red.</p>
-                    </div>
-                </div>
-
-                <div class="help-card">
-                    <i class="fas fa-moon"></i>
-                    <div>
-                        <h4>¿La descarga se detiene al rato?</h4>
-                        <p>Desactiva el <b>"Modo Reposo Automático"</b> en los ajustes de energía de tu PS4. Si la consola se duerme, la tarjeta de red se apaga y corta el envío.</p>
-                    </div>
-                </div>
-
-                <div class="help-card">
-                    <i class="fas fa-vpn-lock"></i>
-                    <div>
-                        <h4>VPN y Bloqueadores de Ads</h4>
-                        <p>Si usas AdGuard, VPN o DNS privados en tu móvil, desactívalos. Estas herramientas suelen bloquear la comunicación entre dispositivos de la misma red WiFi.</p>
-                    </div>
-                </div>
-
-                <div class="help-card">
-                    <i class="fas fa-trash-can"></i>
-                    <div>
-                        <h4>Limpieza de Cola en PS4</h4>
-                        <p>Si un envío falla, elimina la notificación de descarga fallida en el menú principal de tu PS4 antes de reintentar. El sistema puede bloquearse con tareas duplicadas.</p>
-                    </div>
-                </div>
-
-                <div class="help-card">
-                    <i class="fas fa-sync"></i>
-                    <div>
-                        <h4>Error 500 al dar clic en descargar</h4>
-                        <p>Ocurre cuando el link es inválido o el servidor está saturado. <b>Solución:</b> Cierra el Remote PKG Installer en la PS4 (con botón Options) y vuelve a abrirlo para refrescar el puerto.</p>
-                    </div>
-                </div>
-
-                <div class="help-card">
-                    <i class="fas fa-power-off"></i>
-                    <div>
-                        <h4>Último Recurso: Reinicia el Router</h4>
-                        <p>A veces el router bloquea las conexiones locales tras mucho uso. Reiniciarlo suele limpiar la tabla de dispositivos y solucionar errores de conexión "fantasma".</p>
-                    </div>
-                </div>
             </div>
 
-            <div style="margin-top: 50px;">
-                <h3 style="color: var(--ps-blue); text-align: center; margin-bottom: 30px; text-transform: uppercase; font-size: 1.4rem;">💡 Consejos para una Mejor Experiencia</h3>
-                <div class="help-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                    <div class="help-card" style="border-left-color: #0072CE;">
-                        <i class="fas fa-star" style="color: #0072CE;"></i>
-                        <div>
-                            <h4>Enlaces SuperPSX / Akirabox</h4>
-                            <p>Son los servidores más recomendados. NovaPS captura estos enlaces al instante y con la máxima velocidad de respuesta de la consola.</p>
-                        </div>
-                    </div>
-                    <div class="help-card" style="border-left-color: #0072CE;">
-                        <i class="fas fa-battery-full" style="color: #0072CE;"></i>
-                        <div>
-                            <h4>Sin Ahorro de Energía</h4>
-                            <p>Desactiva el modo de ahorro de batería en tu móvil. Esto evita que Android limite la señal WiFi y cause errores de "Consola no alcanzada".</p>
-                        </div>
-                    </div>
-                    <div class="help-card" style="border-left-color: #0072CE;">
-                        <i class="fas fa-tv" style="color: #0072CE;"></i>
-                        <div>
-                            <h4>Espera la Notificación</h4>
-                            <p>Una vez enviado el juego, no cambies de pestaña hasta ver el aviso en la TV. El sistema necesita unos segundos para confirmar la cola de descarga.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="gold-banner">
-                <i class="fas fa-triangle-exclamation" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
-                <h3>RECOMENDACIÓN CRÍTICA</h3>
-                <p>Para estabilidad total y evitar errores de instalación, usa siempre <b>GoldHEN v2.4b18.9</b> o superior.</p>
-                <p style="font-size: 0.85rem; margin-top: 10px; opacity: 0.7;">Verifica en: Ajustes > Información del sistema</p>
-            </div>
-
-            <div style="text-align: center; margin-top: 60px;">
-                <p style="margin-bottom: 25px; color: #777;">Únete a nuestra comunidad para noticias y ayuda personalizada:</p>
-                <div class="btn-grid">
-                    <a href="https://chat.whatsapp.com/Bu5pOwQloqV0kNwYnEMLmN?mode=gi_t" target="_blank" class="btn btn-wa">
-                        <i class="fab fa-whatsapp"></i> Grupo de WhatsApp
-                    </a>
-                    <a href="https://t.me/novapsnew" target="_blank" class="btn btn-tg">
-                        <i class="fab fa-telegram"></i> Canal de Telegram
-                    </a>
-                </div>
-            </div>
         </section>
+
+
+
+        <!-- CAPTURAS -->
+
+        <section style="background: rgba(255,255,255,0.01); border-radius: 50px;">
+
+            <h2 class="section-title">Interfaz de la App</h2>
+
+            <div class="screenshot-grid">
+
+                <div class="screenshot-card">
+
+                    <img src="https://via.placeholder.com/280x590/0072CE/FFFFFF?text=Pestaña+Principal" alt="Captura 1">
+
+                </div>
+
+                <div class="screenshot-card">
+
+                    <img src="https://via.placeholder.com/280x590/0072CE/FFFFFF?text=PS4+Explorer" alt="Captura 2">
+
+                </div>
+
+                <div class="screenshot-card">
+
+                    <img src="https://via.placeholder.com/280x590/0072CE/FFFFFF?text=Nova+IPTV" alt="Captura 3">
+
+                </div>
+
+            </div>
+
+            <p style="text-align: center; color: #555; margin-top: 30px; font-size: 0.9rem;">Desliza para ver más →</p>
+
+        </section>
+
+
+
+        <!-- TUTORIALES -->
+
+        <section>
+
+            <h2 class="section-title">Zona de Aprendizaje</h2>
+
+            <div class="video-grid">
+
+                <a href="https://drive.google.com/file/d/1dFgKj9K4mjf1D-CbP9OG-CFJAmseu2Ud/view?usp=drivesdk" target="_blank" class="video-box">
+
+                    <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+
+                    <div class="video-info"><h4>TUTORIAL: GUÍA COMPLETA v1.2.0</h4></div>
+
+                </a>
+
+                <a href="https://drive.google.com/file/d/1vFIzxIJ74sjdkvVmxR9Ms7BmyE8DkKmk/view?usp=drivesdk" target="_blank" class="video-box">
+
+                    <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+
+                    <div class="video-info"><h4>INSTALACIÓN DE REMOTE PKG (RPI)</h4></div>
+
+                </a>
+
+                <a href="https://drive.google.com/file/d/1Fu_x_gh6ipDnt3zzQnhi3TnzB28kFQj5/view?usp=drivesdk" target="_blank" class="video-box">
+
+                    <div class="video-thumb"><i class="fas fa-play-circle"></i></div>
+
+                    <div class="video-info"><h4>CÓMO USAR EL EXPLORADOR FTP</h4></div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- NOVEDADES LISTA -->
+
+        <section>
+
+            <h2 class="section-title">¿Qué hay de nuevo?</h2>
+
+            <div class="changelog">
+
+                <ul>
+
+                    <li><i class="fas fa-check-double"></i> Nuevo sistema para ver TV en la consola.</li>
+
+                    <li><i class="fas fa-check-double"></i> Explorador de archivos para manejar tu disco duro.</li>
+
+                    <li><i class="fas fa-check-double"></i> Avisos de nuevas versiones dentro de la aplicación.</li>
+
+                    <li><i class="fas fa-check-double"></i> Detección de consola mucho más rápida y estable.</li>
+
+                    <li><i class="fas fa-check-double"></i> Traducido completamente a más de 6 idiomas.</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PREGUNTAS FRECUENTES -->
+
+        <section>
+
+            <h2 class="section-title">Dudas Comunes</h2>
+
+            <div class="faq-grid">
+
+                <div class="faq-item">
+
+                    <h4>¿Necesito tener la PS4 liberada?</h4>
+
+                    <p>Sí, NovaPS es una herramienta para consolas con Jailbreak (HEN o GoldHEN). Sin esto, no podrás instalar archivos ni usar el modo FTP.</p>
+
+                </div>
+
+                <div class="faq-item">
+
+                    <h4>¿Por qué no detecta mi consola el radar?</h4>
+
+                    <p>Asegúrate de que el móvil y la PS4 estén exactamente en la misma red WiFi. Tip: Desactiva los datos móviles antes de escanear.</p>
+
+                </div>
+
+                <div class="faq-item">
+
+                    <h4>¿Tengo que dejar la PS4 encendida?</h4>
+
+                    <p>Para enviar juegos, debes tener abierta la aplicación "Remote PKG Installer" en tu pantalla. Para el Explorer FTP, basta con activar el servidor en GoldHEN.</p>
+
+                </div>
+
+                <div class="faq-item">
+
+                    <h4>¿Es compatible con mi Android?</h4>
+
+                    <p>Funciona en cualquier dispositivo con Android 8.0 en adelante. No se recomienda el uso de emuladores en PC (como BlueStacks).</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- COMUNIDAD -->
+
+        <section style="text-align: center;">
+
+            <h2 class="section-title">Únete a la Comunidad</h2>
+
+            <p style="color:#888; margin-bottom: 60px; font-size: 1.2rem; letter-spacing: 1px;">Entra a nuestros grupos para recibir ayuda y noticias al instante.</p>
+
+            <div class="btn-grid">
+
+                <a href="https://chat.whatsapp.com/Bu5pOwQloqV0kNwYnEMLmN?mode=gi_t" target="_blank" class="btn btn-wa">
+
+                    <i class="fab fa-whatsapp"></i> WHATSAPP
+
+                </a>
+
+                <a href="https://t.me/novapsnew" target="_blank" class="btn btn-tg">
+
+                    <i class="fab fa-telegram"></i> TELEGRAM
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
     </div>
 
+
+
     <footer>
-        <p>Compatible con MediaFire, Akirabox, SuperPSX y más.</p>
-        <p style="margin-top: 10px; font-weight: bold; color: var(--ps-blue);">© 2026 Developed by NovaPS</p>
-        <div class="social-footer">
+
+        <div class="social-links">
+
             <a href="https://x.com/NOVAPSDEV" target="_blank"><i class="fab fa-x-twitter"></i></a>
+
             <a href="https://t.me/novapsnew" target="_blank"><i class="fab fa-telegram"></i></a>
+
         </div>
+
+        <p style="letter-spacing: 3px; font-weight: 900; color: #555; text-transform: uppercase; font-size: 0.8rem;">© 2026 DESARROLLADO POR EL EQUIPO NOVAPS</p>
+
     </footer>
+
 </body>
+
 </html>
+
