@@ -9,135 +9,55 @@
     <style>
         :root {
             --ps-blue: #0072CE;
-            --ps-light-blue: #00aaff;
             --ps-dark-blue: #003791;
             --bg-dark: #020205;
-            --card-bg: rgba(255, 255, 255, 0.03);
             --accent-orange: #ff8c00;
             --accent-green: #2ecc71;
+            --whatsapp: #25D366;
+            --telegram: #229ED9;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.08);
             --neon-blue: #00d2ff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-dark); color: white; font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
 
-        body {
-            background-color: var(--bg-dark);
-            color: white;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
-
-        /* --- EFECTOS DE FONDO --- */
-        .bg-glow {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(0, 114, 206, 0.15), transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(0, 55, 145, 0.2), transparent 40%);
-            z-index: -1;
-        }
-
-        .bg-dots {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: -1;
-        }
+        .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 30%, rgba(0, 114, 206, 0.15), transparent 40%), radial-gradient(circle at 80% 70%, rgba(0, 55, 145, 0.2), transparent 40%); z-index: -1; }
+        .bg-dots { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 30px 30px; z-index: -1; }
 
         header { padding: 100px 20px 40px; text-align: center; }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .logo {
-            font-size: clamp(3rem, 10vw, 6rem);
-            font-weight: 900;
-            margin-bottom: 5px;
-            filter: drop-shadow(0 0 40px rgba(0,114,206,0.4));
-            animation: float 6s ease-in-out infinite;
-        }
-        .logo span { color: var(--ps-blue); text-shadow: 0 0 30px var(--ps-blue); }
-
-        .version-tag {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--ps-blue), var(--neon-blue));
-            padding: 8px 25px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-        }
+        .logo { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; filter: drop-shadow(0 0 30px var(--ps-blue)); margin-bottom: 10px; }
+        .logo span { color: var(--ps-blue); }
+        .version-tag { display: inline-block; background: linear-gradient(90deg, var(--ps-blue), var(--neon-blue)); padding: 8px 25px; border-radius: 50px; font-size: 0.8rem; font-weight: 900; margin-bottom: 20px; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-
         section { padding: 60px 0; }
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            color: #fff;
-            font-size: 2.2rem;
-            position: relative;
-        }
-        .section-title::after {
-            content: ''; display: block; width: 60px; height: 4px; background: var(--ps-blue);
-            margin: 20px auto; border-radius: 10px;
-        }
+        .section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--ps-blue); margin: 20px auto; border-radius: 10px; }
 
-        /* --- CARDS --- */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .feature-card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            padding: 40px 30px;
-            border-radius: 35px;
-            border: 1px solid var(--glass-border);
-            transition: 0.4s;
-        }
-        .feature-card:hover { transform: translateY(-10px); border-color: var(--ps-blue); }
-        .feature-card i { font-size: 2.5rem; color: var(--ps-blue); margin-bottom: 20px; }
-        .feature-card h3 { margin-bottom: 15px; font-size: 1.1rem; color: #fff; }
-        .feature-card ul { list-style: none; color: #aaa; font-size: 0.95rem; }
-        .feature-card li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; }
-        .feature-card li i { font-size: 0.8rem; margin-top: 5px; color: var(--accent-green); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .feature-card { background: var(--glass); backdrop-filter: blur(15px); padding: 35px 25px; border-radius: 30px; border: 1px solid var(--glass-border); }
+        .feature-card i { font-size: 2rem; color: var(--ps-blue); margin-bottom: 15px; }
+        .feature-card h3 { font-size: 1rem; margin-bottom: 10px; }
+        .feature-card ul { list-style: none; font-size: 0.9rem; color: #aaa; }
+        .feature-card li { margin-bottom: 8px; }
 
-        /* --- SCREENSHOTS --- */
-        .screenshot-grid {
-            display: flex; gap: 20px; overflow-x: auto; padding: 20px;
-            scroll-snap-type: x mandatory; scrollbar-width: none;
-        }
-        .screenshot-grid::-webkit-scrollbar { display: none; }
-        .screenshot-card {
-            min-width: 280px; scroll-snap-align: center; aspect-ratio: 9/19;
-            background: #111; border-radius: 40px; border: 8px solid #1a1a1a;
-            overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
+        .btn-grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        .btn { padding: 18px 35px; border-radius: 15px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; }
+        .btn-ps { background: var(--ps-blue); color: white; }
+        .btn-wa { background: var(--whatsapp); color: white; }
+        .btn-tg { background: var(--telegram); color: white; }
+        .btn:hover { transform: translateY(-5px); filter: brightness(1.1); }
+
+        .video-container { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 40px; padding: 40px; text-align: center; margin-top: 40px; }
+        
+        .screenshot-grid { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; scrollbar-width: none; }
+        .screenshot-card { min-width: 260px; aspect-ratio: 9/19; border-radius: 30px; border: 6px solid #1a1a1a; overflow: hidden; }
         .screenshot-card img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- BOTONES --- */
-        .btn-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-        .btn {
-            padding: 20px 45px; border-radius: 20px; text-decoration: none;
-            font-weight: 800; display: inline-flex; align-items: center; gap: 12px;
-            text-transform: uppercase; transition: 0.4s; font-size: 1rem;
-        }
-        .btn-primary { background: linear-gradient(135deg, var(--ps-blue), var(--ps-dark-blue)); color: white; }
-
-        .alert-box {
-            background: rgba(255, 140, 0, 0.1);
-            border: 1px solid var(--accent-orange);
-            padding: 25px;
-            border-radius: 30px;
-            margin: 30px auto;
-            max-width: 800px;
-            text-align: center;
-        }
+        .info-pill { background: rgba(46, 204, 113, 0.1); color: var(--accent-green); padding: 10px 20px; border-radius: 50px; display: inline-block; font-size: 0.8rem; font-weight: 700; margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -147,82 +67,76 @@
     <header>
         <div class="version-tag">ACTUALIZACIÓN v1.2.0</div>
         <div class="logo">NOVA<span>PS</span></div>
-        <h2 style="color: var(--ps-blue); margin-top: 15px;">¿Qué es NovaPs?</h2>
-        <p style="color: #eee; max-width: 850px; margin: 20px auto; font-size: 1.15rem; line-height: 1.8;">
-            App tipo navegador que envía enlaces de descarga a tu PS4 para instalar juegos (.pkg) directamente, <b>sin descargarlos en tu teléfono o tener que pasarlo por USB</b>.
+        <p style="color: #eee; max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
+            App tipo navegador que envía enlaces de descarga a tu PS4 para instalar juegos (.pkg) directamente, sin descargarlos en tu teléfono o usar USB.
         </p>
-        <div style="display: flex; justify-content: center; gap: 20px; color: var(--neon-blue); font-weight: 800; margin-top: 20px;">
-            <span>⚡ MediaFire (.pkg)</span>
-            <span>✅ Enlaces de Akirabox</span>
-        </div>
     </header>
 
     <div class="container">
-
+        
         <section>
-            <h2 class="section-title">¿Qué trae la Nueva Versión?</h2>
+            <h2 class="section-title">¿Qué hay de nuevo?</h2>
             <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Soporte Total</h3>
+                    <ul>
+                        <li>• MediaFire (.pkg) directo</li>
+                        <li>• Enlaces de Akirabox</li>
+                        <li>• Descarga directa en PS4</li>
+                    </ul>
+                </div>
                 <div class="feature-card">
                     <i class="fas fa-network-wired"></i>
                     <h3>Funciones FTP</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> FTP vía Remote PKG (Máxima velocidad)</li>
-                        <li><i class="fas fa-check"></i> FTP Normal incluido</li>
-                        <li><i class="fas fa-check"></i> Soporte IP+Port para Goldhen</li>
+                        <li>• FTP vía RPI (Más rápido)</li>
+                        <li>• FTP Normal integrado</li>
+                        <li>• Soporte Goldhen (IP+Port)</li>
                     </ul>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-hdd"></i>
-                    <h3>Explorador de Archivos</h3>
+                    <h3>Explorador HDD</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Acceso total al HDD de tu PS4</li>
-                        <li><i class="fas fa-check"></i> Copia archivos del móvil al PS4</li>
-                        <li><i class="fas fa-check"></i> Borra archivos directamente en consola</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>Extras v1.2.0</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Envío de Payloads (.bin inalámbrico)</li>
-                        <li><i class="fas fa-check"></i> Menú de Ayuda interactivo</li>
-                        <li><i class="fas fa-check"></i> Nova Store con aportes de comunidad</li>
+                        <li>• Copia del móvil a la PS4</li>
+                        <li>• Borra archivos en consola</li>
+                        <li>• Inyector de Payloads</li>
                     </ul>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-tv"></i>
                     <h3>Nova IPTV</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Listas m3u personalizadas o por defecto</li>
-                        <li><i class="fas fa-check"></i> Mira TV desde el navegador de tu ps4</li>
+                        <li>• Listas m3u personalizadas</li>
+                        <li>• TV pública en el navegador</li>
+                        <li>• Menú de ayuda completo</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section style="background: rgba(255,255,255,0.02); border-radius: 40px; padding: 50px 30px;">
-            <h2 class="section-title">Sistema de Historial</h2>
-            <p style="color: #aaa; text-align: center; max-width: 800px; margin: 0 auto 40px;">
-                ¿Se canceló tu descarga? No hay problema. Sigue estos pasos para recuperar tu progreso:
+        <section style="text-align: center; background: rgba(0,114,206,0.05); border-radius: 40px; padding: 40px;">
+            <h3>🔄 Historial de Descargas</h3>
+            <p style="color: #aaa; margin: 20px auto; max-width: 800px;">
+                Si se cancela la descarga: Dale a reanudar y pausa en PS4. En NovaPS, ve al Historial, selecciona el enlace y dale a descargar. ¡Vuelve al porcentaje que tenías al instante!
             </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                <div style="text-align: center; color: #fff;">
-                    <span style="font-size: 2rem; color: var(--ps-blue);">1</span>
-                    <p>Dale a reanudar y luego pausa en tu consola.</p>
-                </div>
-                <div style="text-align: center; color: #fff;">
-                    <span style="font-size: 2rem; color: var(--ps-blue);">2</span>
-                    <p>Entra al Historial de NovaPS y selecciona el último enlace.</p>
-                </div>
-                <div style="text-align: center; color: #fff;">
-                    <span style="font-size: 2rem; color: var(--ps-blue);">3</span>
-                    <p>Dale a descargar y reanuda en tu PS4 para volver al porcentaje que tenías.</p>
-                </div>
+        </section>
+
+        <section class="video-container">
+            <h2 class="section-title">Tutoriales y Ayuda</h2>
+            <p style="color: #ccc; margin-bottom: 30px;">
+                Recomendamos ver los vídeos tutoriales y leer el apartado de ayuda para dominar todas las funciones.
+            </p>
+            <div class="info-pill"><i class="fas fa-shield-alt"></i> APP GRATIS | SIN ANUNCIOS | SIN VIRUS</div>
+            <div class="btn-grid">
+                <a href="https://www.mediafire.com/file/a9sblopzscjgq8y/NovaPSv1.2.0.apk/file" target="_blank" class="btn btn-ps">
+                    <i class="fas fa-download"></i> DESCARGAR APK
+                </a>
             </div>
         </section>
 
         <section>
-            <h2 class="section-title">Interfaz</h2>
             <div class="screenshot-grid">
                 <div class="screenshot-card"><img src="assets/img/captura1.png" alt="Captura 1"></div>
                 <div class="screenshot-card"><img src="assets/img/captura2.png" alt="Captura 2"></div>
@@ -230,26 +144,23 @@
             </div>
         </section>
 
-        <div class="alert-box">
-            <p style="color: var(--accent-orange); font-weight: 800; margin-bottom: 10px;">📌 RECOMENDACIÓN IMPORTANTE</p>
-            <p style="color: #ccc;">Ver los vídeos tutoriales y leer el apartado de ayuda dentro de la aplicación.</p>
-            <p style="color: var(--accent-green); font-size: 0.9rem; margin-top: 15px;">
-                <i class="fas fa-shield-alt"></i> Totalmente gratis, sin anuncios y libre de virus (comprobado con VirusTotal).
-            </p>
-        </div>
-
         <section style="text-align: center;">
+            <h2 class="section-title">Únete a la Comunidad</h2>
+            <p style="color: #888; margin-bottom: 30px;">Recibe ayuda, soporte y noticias en nuestros grupos oficiales.</p>
             <div class="btn-grid">
-                <a href="https://www.mediafire.com/file/a9sblopzscjgq8y/NovaPSv1.2.0.apk/file" target="_blank" class="btn btn-primary">
-                    <i class="fas fa-download"></i> DESCARGAR APK v1.2.0
+                <a href="https://chat.whatsapp.com/Bu5pOwQloqV0kNwYnEMLmN" target="_blank" class="btn btn-wa">
+                    <i class="fab fa-whatsapp"></i> WHATSAPP
+                </a>
+                <a href="https://t.me/novapsnew" target="_blank" class="btn btn-tg">
+                    <i class="fab fa-telegram"></i> TELEGRAM
                 </a>
             </div>
         </section>
 
     </div>
 
-    <footer style="padding: 60px 20px; text-align: center; border-top: 1px solid #111;">
-        <p style="color: #444; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px;">© 2026 NOVAPS DEV TEAM</p>
+    <footer style="padding: 40px; text-align: center; border-top: 1px solid #111; color: #444; font-size: 0.8rem; font-weight: 800;">
+        © 2026 NOVAPS DEV TEAM | <a href="https://novapsnew.github.io/Novaps/" style="color: #444; text-decoration: none;">SITIO OFICIAL</a>
     </footer>
 </body>
 </html>
