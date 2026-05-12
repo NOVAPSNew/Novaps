@@ -12,135 +12,140 @@
             --ps-dark-blue: #003791;
             --bg-dark: #020205;
             --accent-orange: #ff8c00;
-            --accent-green: #2ecc71;
             --whatsapp: #25D366;
             --telegram: #229ED9;
             --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
             --neon-blue: #00d2ff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--bg-dark); color: white; font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+        h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
 
-        .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 30%, rgba(0, 114, 206, 0.15), transparent 40%), radial-gradient(circle at 80% 70%, rgba(0, 55, 145, 0.2), transparent 40%); z-index: -1; }
-        .bg-dots { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 30px 30px; z-index: -1; }
+        .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 30%, rgba(0, 114, 206, 0.15), transparent 40%); z-index: -1; }
 
-        header { padding: 120px 20px 60px; text-align: center; }
-        .logo { font-size: clamp(3.5rem, 10vw, 6rem); font-weight: 900; filter: drop-shadow(0 0 30px var(--ps-blue)); margin-bottom: 10px; }
+        header { padding: 100px 20px 40px; text-align: center; }
+        .logo { font-size: clamp(3rem, 10vw, 5rem); font-weight: 900; margin-bottom: 10px; }
         .logo span { color: var(--ps-blue); }
-        .version-tag { display: inline-block; background: linear-gradient(90deg, var(--ps-blue), var(--neon-blue)); padding: 8px 25px; border-radius: 50px; font-size: 0.8rem; font-weight: 900; margin-bottom: 20px; }
+        .version-tag { display: inline-block; background: linear-gradient(90deg, var(--ps-blue), var(--neon-blue)); padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; margin-bottom: 20px; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        section { padding: 60px 0; }
-        .section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; }
-        .section-title::after { content: ''; display: block; width: 80px; height: 5px; background: var(--ps-blue); margin: 25px auto; border-radius: 10px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        section { padding: 40px 0; }
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 1.8rem; border-bottom: 4px solid var(--ps-blue); display: table; margin-left: auto; margin-right: auto; padding-bottom: 10px; }
 
-        /* --- VIDEOS --- */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .video-card { background: #000; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); }
-        .video-card video { width: 100%; aspect-ratio: 16/9; background: #000; display: block; border-bottom: 2px solid var(--ps-blue); }
-        .video-title { padding: 15px; text-align: center; font-size: 0.85rem; font-weight: bold; background: rgba(255,255,255,0.02); }
+        /* Videos Estilo Card */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .video-card { background: #000; border-radius: 15px; overflow: hidden; border: 1px solid var(--glass-border); }
+        .video-card video { width: 100%; aspect-ratio: 16/9; display: block; background: #000; }
+        .video-title { padding: 15px; text-align: center; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; color: var(--neon-blue); }
 
-        /* --- IMÁGENES --- */
-        .pc-preview { width: 100%; max-width: 900px; margin: 0 auto 40px; border-radius: 20px; border: 4px solid #1a1a1a; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        /* Imágenes */
+        .pc-preview { width: 100%; border-radius: 15px; border: 3px solid #1a1a1a; overflow: hidden; margin-bottom: 20px; }
         .pc-preview img { width: 100%; display: block; }
         
-        .screenshot-grid { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; scroll-snap-type: x mandatory; }
-        .screenshot-grid::-webkit-scrollbar { height: 8px; background: #000; }
-        .screenshot-grid::-webkit-scrollbar-thumb { background: var(--ps-blue); border-radius: 10px; }
-        .screenshot-card { min-width: 270px; aspect-ratio: 9/19; border-radius: 35px; border: 7px solid #1a1a1a; overflow: hidden; scroll-snap-align: center; background: #111; }
+        .screenshot-grid { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: thin; }
+        .screenshot-card { min-width: 240px; aspect-ratio: 9/19; border-radius: 20px; border: 5px solid #1a1a1a; overflow: hidden; background: #111; }
         .screenshot-card img { width: 100%; height: 100%; object-fit: cover; }
 
-        .btn-grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-        .btn { padding: 20px 45px; border-radius: 18px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; text-transform: uppercase; font-size: 1rem; }
-        .btn-primary { background: linear-gradient(135deg, var(--ps-blue), var(--ps-dark-blue)); color: white; box-shadow: 0 15px 30px rgba(0,114,206,0.3); }
-        .btn-pc { background: linear-gradient(135deg, #333, #000); color: white; border: 1px solid #444; }
-        .btn-old { background: #111; color: #666; border: 1px solid #222; font-size: 0.75rem; padding: 10px 20px; }
+        /* Botones */
+        .btn-grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        .btn { padding: 18px 35px; border-radius: 12px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; font-size: 0.9rem; }
+        .btn-primary { background: var(--ps-blue); color: white; }
+        .btn-pc { background: #222; color: white; border: 1px solid #444; }
+        .btn-old { background: transparent; color: #555; border: 1px solid #333; font-size: 0.7rem; }
         .btn-wa { background: var(--whatsapp); color: white; }
-        .btn-tg { background: var(--telegram); color: white; }
+        .btn-tg { background: #229ED9; color: white; }
 
-        .alert-box { background: rgba(255, 140, 0, 0.05); border: 1px solid var(--accent-orange); padding: 30px; border-radius: 30px; margin: 40px auto; max-width: 900px; text-align: center; }
+        .alert-box { background: rgba(255, 140, 0, 0.1); border: 1px solid var(--accent-orange); padding: 25px; border-radius: 20px; margin: 30px auto; text-align: center; max-width: 800px; }
 
-        @media (max-width: 768px) { .logo { font-size: 3.5rem; } .btn { width: 100%; justify-content: center; } }
+        @media (max-width: 600px) { .logo { font-size: 2.5rem; } .btn { width: 100%; justify-content: center; } }
     </style>
 </head>
 <body>
     <div class="bg-glow"></div>
-    <div class="bg-dots"></div>
 
     <header>
-        <div class="version-tag">NUEVA VERSIÓN v1.3.0</div>
+        <div class="version-tag">NUEVA v1.3.0</div>
         <div class="logo">NOVA<span>PS</span></div>
-        <h2 style="color: var(--ps-blue); margin-top: 10px;">¡Ya disponible para Android y PC!</h2>
-        <!-- EXPLICACIÓN RECUPERADA -->
-        <p style="color: #eee; max-width: 850px; margin: 20px auto; font-size: 1.1rem; line-height: 1.7;">
-            App tipo navegador que envía enlaces de descarga a tu PS4 para instalar juegos (.pkg) directamente, <b>sin descargarlos en tu teléfono/PC o tener que pasarlo por USB</b>.[span_2](start_span)[span_2](end_span)
+        <p style="color: #bbb; max-width: 700px; margin: 0 auto; padding: 0 20px;">
+            Instala tus juegos (.pkg) directamente en tu consola PS4 sin cables ni USB.
         </p>
     </header>
 
     <div class="container">
         
-        <!-- VISTA PREVIA RECUPERADA -->
         <section>
-            <h2 class="section-title">Interfaz del Sistema</h2>
+            <h2 class="section-title">VISTA PREVIA</h2>
             <div class="pc-preview">
-                <img src="assets/img/pc.png" alt="Vista PC NovaPS">[span_3](start_span)[span_3](end_span)
+                <img src="assets/img/pc.png" alt="PC Version">
             </div>
             <div class="screenshot-grid">
-                <div class="screenshot-card"><img src="assets/img/captura1.png" alt="Captura 1"></div>[span_4](start_span)[span_4](end_span)
-                <div class="screenshot-card"><img src="assets/img/captura2.png" alt="Captura 2"></div>[span_5](start_span)[span_5](end_span)
-                <div class="screenshot-card"><img src="assets/img/captura3.png" alt="Captura 3"></div>[span_6](start_span)[span_6](end_span)
+                <div class="screenshot-card"><img src="assets/img/captura1.png"></div>
+                <div class="screenshot-card"><img src="assets/img/captura2.png"></div>
+                <div class="screenshot-card"><img src="assets/img/captura3.png"></div>
             </div>
         </section>
 
         <section>
-            <h2 class="section-title">Guías en Video</h2>
+            <h2 class="section-title">VIDEO TUTORIALES</h2>
             <div class="video-grid">
                 <div class="video-card">
-                    <video controls><source src="https://files.catbox.moe/nfid30.mp4" type="video/mp4"></video>[span_7](start_span)[span_7](end_span)
-                    <div class="video-title">DESCARGAR REMOTE PKG</div>[span_8](start_span)[span_8](end_span)
+                    <video controls preload="none">
+                        <source src="https://files.catbox.moe/nfid30.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-title">Instalar Remote PKG</div>
                 </div>
                 <div class="video-card">
-                    <video controls><source src="https://files.catbox.moe/rtjark.mp4" type="video/mp4"></video>[span_9](start_span)[span_9](end_span)
-                    <div class="video-title">USO DE APARTADO URL</div>[span_10](start_span)[span_10](end_span)
+                    <video controls preload="none">
+                        <source src="https://files.catbox.moe/rtjark.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-title">Uso de URL</div>
                 </div>
                 <div class="video-card">
-                    <video controls><source src="https://files.catbox.moe/mpz1sp.mp4" type="video/mp4"></video>[span_11](start_span)[span_11](end_span)
-                    <div class="video-title">USO DE FTP</div>[span_12](start_span)[span_12](end_span)
+                    <video controls preload="none">
+                        <source src="https://files.catbox.moe/mpz1sp.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-title">Uso de FTP</div>
                 </div>
                 <div class="video-card">
-                    <video controls><source src="https://files.catbox.moe/c0vigw.mp4" type="video/mp4"></video>[span_13](start_span)[span_13](end_span)
-                    <div class="video-title">INSTALACIÓN DE TEMAS</div>[span_14](start_span)[span_14](end_span)
+                    <video controls preload="none">
+                        <source src="https://files.catbox.moe/c0vigw.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-title">Instalar Temas</div>
                 </div>
             </div>
         </section>
 
         <section style="text-align: center;">
             <div class="alert-box">
-                <p style="color: var(--accent-orange); font-weight: 800;">⚠️ IMPORTANTE (Rootz / Vikingfile)</p>
-                <p style="color: white; margin-top: 10px;">Mantener la app en <b>segundo plano</b> durante la prueba de estos links.[span_15](start_span)[span_15](end_span)</p>
+                <p style="color: var(--accent-orange); font-weight: bold; margin-bottom: 5px;">⚠️ RECOMENDACIÓN PRUEBA (Rootz / Viking)</p>
+                <p style="font-size: 0.9rem;">No cierres la app, mantenla en segundo plano durante la descarga.</p>
             </div>
             
-            <h2 class="section-title">Descargas v1.3.0</h2>
+            <h2 class="section-title">DESCARGAS</h2>
             <div class="btn-grid">
-                <a href="https://www.mediafire.com/file/r0jg9ov3i6z4uc9/NOVAPS1.3.0.apk/file" target="_blank" class="btn btn-primary"><i class="fab fa-android"></i> ANDROID v1.3.0</a>[span_16](start_span)[span_16](end_span)
-                <a href="https://www.mediafire.com/file/t5jakffkat74g18/NOVAPSV1.3.0PC.rar/file" target="_blank" class="btn btn-pc"><i class="fas fa-desktop"></i> PC v1.3.0</a>[span_17](start_span)[span_17](end_span)
+                <a href="https://www.mediafire.com/file/r0jg9ov3i6z4uc9/NOVAPS1.3.0.apk/file" target="_blank" class="btn btn-primary"><i class="fab fa-android"></i> ANDROID v1.3.0</a>
+                <a href="https://www.mediafire.com/file/t5jakffkat74g18/NOVAPSV1.3.0PC.rar/file" target="_blank" class="btn btn-pc"><i class="fas fa-desktop"></i> PC v1.3.0</a>
             </div>
 
-            <div style="margin-top: 40px; opacity: 0.6;">
-                <p style="font-size: 0.8rem; margin-bottom: 10px;">VERSIONES ANTERIORES</p>
+            <div style="margin-top: 50px;">
+                <p style="color: #444; font-size: 0.7rem; margin-bottom: 10px;">VERSIONES ANTIGUAS</p>
                 <div class="btn-grid">
-                    <a href="https://www.mediafire.com/file/a9sblopzscjgq8y/NovaPSv1.2.0.apk/file" target="_blank" class="btn btn-old">APK v1.2.0</a>[span_18](start_span)[span_18](end_span)
-                    <a href="https://www.mediafire.com/file/m02qqd3i2mauzwu/NOVAPSV1.2.0PC.rar/file" target="_blank" class="btn btn-old">PC v1.2.0</a>[span_19](start_span)[span_19](end_span)
+                    <a href="https://www.mediafire.com/file/a9sblopzscjgq8y/NovaPSv1.2.0.apk/file" target="_blank" class="btn btn-old">APK v1.2.0</a>
+                    <a href="https://www.mediafire.com/file/m02qqd3i2mauzwu/NOVAPSV1.2.0PC.rar/file" target="_blank" class="btn btn-old">PC v1.2.0</a>
                 </div>
+            </div>
+
+            <div class="btn-grid" style="margin-top: 40px;">
+                <a href="https://chat.whatsapp.com/Bu5pOwQloqV0kNwYnEMLmN" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/novapsnew" target="_blank" class="btn btn-tg"><i class="fab fa-telegram"></i></a>
             </div>
         </section>
     </div>
 
-    <footer style="padding: 40px; text-align: center; color: #333; font-size: 0.7rem;">
-        © 2026 NOVAPS DEV | DESARROLLADO PARA LA COMUNIDAD[span_20](start_span)[span_20](end_span)
+    <footer style="padding: 40px; text-align: center; color: #222; font-size: 0.7rem;">
+        © 2026 NOVAPS DEV TEAM
     </footer>
 </body>
 </html>
