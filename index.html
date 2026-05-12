@@ -39,15 +39,17 @@
 
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .feature-card { background: var(--glass); backdrop-filter: blur(15px); padding: 35px 25px; border-radius: 30px; border: 1px solid var(--glass-border); transition: 0.3s; }
-        .feature-card:hover { transform: translateY(-10px); border-color: var(--ps-blue); }
         .feature-card i { font-size: 2.5rem; color: var(--ps-blue); margin-bottom: 20px; }
         .feature-card h3 { font-size: 1.1rem; margin-bottom: 15px; }
-        .feature-card ul { list-style: none; font-size: 0.85rem; color: #aaa; }
+        .feature-card ul { list-style: none; font-size: 0.95rem; color: #aaa; }
         .feature-card li { margin-bottom: 10px; display: flex; gap: 10px; }
         .feature-card li i { color: var(--accent-green); margin-top: 5px; font-size: 0.8rem; }
 
+        .links-bar { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; font-weight: 800; font-size: 0.9rem; }
+        .link-item { color: var(--neon-blue); }
+
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .video-card { background: #000; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); transition: 0.4s; }
+        .video-card { background: #000; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); }
         .video-card video { width: 100%; aspect-ratio: 16/9; background: #000; display: block; border-bottom: 2px solid var(--ps-blue); }
         .video-title { padding: 15px; text-align: center; font-size: 0.85rem; font-weight: bold; background: rgba(255,255,255,0.02); }
 
@@ -75,11 +77,18 @@
     <div class="bg-dots"></div>
 
     <header>
-        <div class="version-tag">NUEVA v1.3.0</div>
+        <div class="version-tag">NUEVA ACTUALIZACIÓN v1.3.0</div>
         <div class="logo">NOVA<span>PS</span></div>
+        <h2 style="color: var(--ps-blue); margin-top: 10px;">¡Ya disponible para Android y PC!</h2>
         <p style="color: #eee; max-width: 850px; margin: 20px auto; font-size: 1.1rem; line-height: 1.7;">
-            App tipo navegador para instalar juegos (.pkg) directamente en tu PS4, <b>sin descargarlos en tu teléfono/PC</b>.
+            App tipo navegador que envía enlaces de descarga a tu PS4 para instalar juegos (.pkg) directamente, <b>sin descargarlos en tu teléfono/PC o tener que pasarlos por USB</b>.
         </p>
+        <div class="links-bar">
+            <span class="link-item">⚡ Akirabox</span>
+            <span class="link-item">✅ Mediafire</span>
+            <span class="link-item">⚠️ Rootz (2do Plano)</span>
+            <span class="link-item">⚠️ Vikingfile (2do Plano)</span>
+        </div>
     </header>
 
     <div class="container">
@@ -88,45 +97,61 @@
             <h2 class="section-title">Novedades v1.3.0</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <i class="fas fa-magic"></i>
-                    <h3>Mejoras Visuales</h3>
+                    <i class="fas fa-palette"></i>
+                    <h3>Personalización</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Nuevo apartado de TEMAS</li>
-                        <li><i class="fas fa-check"></i> Rediseño de interfaces</li>
+                        <li><i class="fas fa-check"></i> Apartado de temas</li>
+                        <li><i class="fas fa-check"></i> Cambios en diseños</li>
                         <li><i class="fas fa-check"></i> Pantalla completa en IPTV</li>
                     </ul>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>Correcciones</h3>
+                    <i class="fas fa-bug"></i>
+                    <h3>Estabilidad</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Solución de errores generales</li>
-                        <li><i class="fas fa-check"></i> Mejoras en apartados FTP</li>
-                        <li><i class="fas fa-check"></i> Estabilidad en IPTV</li>
+                        <li><i class="fas fa-check"></i> Solución de errores</li>
+                        <li><i class="fas fa-check"></i> Fix en apartados FTP</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2 class="section-title">Funciones Base</h2>
+            <h2 class="section-title">¿Qué hace la App?</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <i class="fas fa-network-wired"></i>
-                    <h3>FTP & Remote</h3>
+                    <h3>Funciones FTP</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Envío directo vía RPI</li>
-                        <li><i class="fas fa-check"></i> Explorador HDD completo</li>
+                        <li><i class="fas fa-check"></i> FTP vía Remote PKG (Rápido)</li>
+                        <li><i class="fas fa-check"></i> FTP Normal integrado</li>
+                        <li><i class="fas fa-check"></i> Soporte Goldhen IP+Port</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-hdd"></i>
+                    <h3>Explorador HDD</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Copia archivos móvil/PC a PS4</li>
+                        <li><i class="fas fa-check"></i> Borra archivos en consola</li>
                         <li><i class="fas fa-check"></i> Inyector de Payloads (.bin)</li>
                     </ul>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-history"></i>
+                    <i class="fas fa-tasks"></i>
                     <h3>Gestión</h3>
                     <ul>
                         <li><i class="fas fa-check"></i> Historial inteligente</li>
                         <li><i class="fas fa-check"></i> Reanuda descargas</li>
-                        <li><i class="fas fa-check"></i> Sincronización instantánea</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tv"></i>
+                    <h3>Nova IPTV</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Listas m3u personalizadas</li>
+                        <li><i class="fas fa-check"></i> TV pública en navegador PS4</li>
+                        <li><i class="fas fa-check"></i> Menú de ayuda completo</li>
                     </ul>
                 </div>
             </div>
@@ -168,9 +193,9 @@
 
         <section style="text-align: center;">
             <div class="alert-box">
-                <p style="color: var(--accent-orange); font-weight: 800;">⚠️ RECOMENDACIÓN PRUEBA (Rootz / Viking)</p>
-                <p style="color: white; margin-top: 10px;">No cierres la app, mantenla en segundo plano durante la descarga de estos links.</p>
-                <p style="color: var(--neon-blue); font-size: 0.8rem; margin-top: 10px;">*Remote PKG Installer debe estar abierto para URL, FTP y Temas.</p>
+                <p style="color: var(--accent-orange); font-weight: 800;">📌 NOTA IMPORTANTE (Rootz / Vikingfile)</p>
+                <p style="color: white; margin-top: 10px;">Es obligatorio tener la <b>aplicación en segundo plano</b> y no cerrarla si usas estos servidores (Links en fase de prueba).</p>
+                <p style="color: var(--neon-blue); font-size: 0.8rem; margin-top: 15px;">*Remote PKG Installer debe estar abierto para URL, FTP y Temas.</p>
             </div>
             
             <div class="btn-grid">
@@ -186,7 +211,7 @@
     </div>
 
     <footer style="padding: 60px; text-align: center; color: #444; font-size: 0.7rem;">
-        © 2026 NOVAPS DEV TEAM | COSTA RICA
+        © 2026 NOVAPS DEV TEAM
     </footer>
 </body>
 </html>
