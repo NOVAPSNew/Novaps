@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,28 +40,30 @@
 
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .feature-card { background: var(--glass); backdrop-filter: blur(15px); padding: 35px 25px; border-radius: 30px; border: 1px solid var(--glass-border); transition: 0.3s; }
-        .feature-card:hover { transform: translateY(-10px); border-color: var(--ps-blue); }
         .feature-card i { font-size: 2.5rem; color: var(--ps-blue); margin-bottom: 20px; }
         .feature-card h3 { font-size: 1.1rem; margin-bottom: 15px; }
         .feature-card ul { list-style: none; font-size: 0.95rem; color: #aaa; }
-        .feature-card li { margin-bottom: 10px; display: flex; gap: 10px; }
-        .feature-card li i { color: var(--accent-green); margin-top: 5px; font-size: 0.8rem; }
 
-        /* --- GALERÍA DE VIDEOS --- */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .video-box { background: #000; border-radius: 30px; overflow: hidden; border: 1px solid var(--glass-border); transition: 0.4s; text-decoration: none; color: white; }
-        .video-box:hover { border-color: var(--ps-blue); transform: scale(1.05); }
-        .video-thumb { aspect-ratio: 16/9; background: #050505; display: flex; align-items: center; justify-content: center; position: relative; }
-        .video-thumb i { font-size: 3.5rem; color: var(--ps-blue); z-index: 2; transition: 0.4s; }
-        .video-box:hover .video-thumb i { color: var(--neon-blue); transform: scale(1.2); }
-        .video-info { padding: 25px; text-align: center; }
-        .video-info h4 { font-size: 0.9rem; letter-spacing: 1px; }
+        /* --- VIDEOS REPRODUCIBLES --- */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .video-card { background: #000; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); }
+        .video-card video { width: 100%; aspect-ratio: 16/9; background: #000; display: block; border-bottom: 2px solid var(--ps-blue); }
+        .video-title { padding: 15px; text-align: center; font-size: 0.85rem; font-weight: bold; background: rgba(255,255,255,0.02); }
+
+        /* --- VISTA PREVIA IMÁGENES --- */
+        .pc-preview { width: 100%; max-width: 900px; margin: 0 auto 40px; border-radius: 20px; border: 4px solid #1a1a1a; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .pc-preview img { width: 100%; display: block; }
+        
+        .screenshot-grid { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; scroll-snap-type: x mandatory; scrollbar-width: none; }
+        .screenshot-grid::-webkit-scrollbar { display: none; }
+        .screenshot-card { min-width: 270px; aspect-ratio: 9/19; border-radius: 35px; border: 7px solid #1a1a1a; overflow: hidden; scroll-snap-align: center; background: #111; }
+        .screenshot-card img { width: 100%; height: 100%; object-fit: cover; }
 
         .btn-grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
         .btn { padding: 20px 45px; border-radius: 18px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; text-transform: uppercase; font-size: 1rem; }
         .btn-primary { background: linear-gradient(135deg, var(--ps-blue), var(--ps-dark-blue)); color: white; box-shadow: 0 15px 30px rgba(0,114,206,0.3); }
         .btn-pc { background: linear-gradient(135deg, #333, #000); color: white; border: 1px solid #444; }
-        .btn-old { background: #222; color: #888; border: 1px dashed #444; font-size: 0.8rem; padding: 10px 20px; }
+        .btn-old { background: #111; color: #666; border: 1px solid #222; font-size: 0.75rem; padding: 10px 20px; }
         .btn-wa { background: var(--whatsapp); color: white; }
         .btn-tg { background: var(--telegram); color: white; }
 
@@ -76,9 +79,8 @@
     <header>
         <div class="version-tag">NUEVA VERSIÓN v1.3.0</div>
         <div class="logo">NOVA<span>PS</span></div>
-        <h2 style="color: var(--ps-blue); margin-top: 10px;">¡Actualización de Sistema!</h2>
         <p style="color: #eee; max-width: 850px; margin: 20px auto; font-size: 1.1rem; line-height: 1.7;">
-            Instala tus juegos (.pkg) directamente en tu PS4. En esta versión v1.3.0 hemos mejorado la estabilidad y añadido personalización avanzada.
+            Instala juegos directamente en tu consola. <br><b>Rápido, sin USB y sin publicidad.</b>
         </p>
     </header>
 
@@ -90,89 +92,94 @@
                 <div class="feature-card">
                     <i class="fas fa-paint-brush"></i>
                     <h3>Personalización</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Nuevo apartado de Temas</li>
-                        <li><i class="fas fa-check"></i> Cambios en diseños de interfaz</li>
-                        <li><i class="fas fa-check"></i> Mejoras visuales generales</li>
-                    </ul>
+                    <ul><li>Nueva sección de TEMAS y mejoras de diseño.</li></ul>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-tv"></i>
-                    <h3>IPTV Mejorado</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Pantalla completa en IPTV</li>
-                        <li><i class="fas fa-check"></i> Estabilidad de streaming</li>
-                        <li><i class="fas fa-check"></i> Corrección de bugs previos</li>
-                    </ul>
+                    <h3>IPTV Plus</h3>
+                    <ul><li>Modo pantalla completa y corrección de errores.</li></ul>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-bug"></i>
-                    <h3>Estabilidad</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Solución de errores generales</li>
-                        <li><i class="fas fa-check"></i> Mejoras en apartados FTP</li>
-                        <li><i class="fas fa-check"></i> Optimización de carga</li>
-                    </ul>
+                    <i class="fas fa-server"></i>
+                    <h3>FTP & Fixes</h3>
+                    <ul><li>Solución en apartados FTP y errores generales.</li></ul>
                 </div>
             </div>
         </section>
 
+        <!-- SECCIÓN DE IMÁGENES RECUPERADA -->
         <section>
-            <h2 class="section-title">Tutoriales de Uso</h2>
+            <h2 class="section-title">Interfaz del Sistema</h2>
+            <div class="pc-preview">
+                <img src="assets/img/pc.png" alt="Vista PC NovaPS">
+            </div>
+            <div class="screenshot-grid">
+                <div class="screenshot-card"><img src="assets/img/captura1.png" alt="Captura 1"></div>
+                <div class="screenshot-card"><img src="assets/img/captura2.png" alt="Captura 2"></div>
+                <div class="screenshot-card"><img src="assets/img/captura3.png" alt="Captura 3"></div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Guías en Video</h2>
             <div class="video-grid">
-                <a href="https://files.catbox.moe/nfid30.mp4" target="_blank" class="video-box">
-                    <div class="video-thumb"><i class="fas fa-download"></i></div>
-                    <div class="video-info"><h4>Cómo descargar Remote PKG</h4></div>
-                </a>
-                <a href="https://files.catbox.moe/rtjark.mp4" target="_blank" class="video-box">
-                    <div class="video-thumb"><i class="fas fa-link"></i></div>
-                    <div class="video-info"><h4>Uso del apartado URL</h4></div>
-                </a>
-                <a href="https://files.catbox.moe/mpz1sp.mp4" target="_blank" class="video-box">
-                    <div class="video-thumb"><i class="fas fa-folder-open"></i></div>
-                    <div class="video-info"><h4>Cómo usar FTP</h4></div>
-                </a>
-                <a href="https://files.catbox.moe/c0vigw.mp4" target="_blank" class="video-box">
-                    <div class="video-thumb"><i class="fas fa-palette"></i></div>
-                    <div class="video-info"><h4>Cómo aplicar Temas</h4></div>
-                </a>
+                <div class="video-card">
+                    <video controls>
+                        <source src="https://files.catbox.moe/nfid30.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-title">DESCARGAR REMOTE PKG</div>
+                </div>
+                <div class="video-card">
+                    <video controls>
+                        <source src="https://files.catbox.moe/rtjark.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-title">USO DE APARTADO URL</div>
+                </div>
+                <div class="video-card">
+                    <video controls>
+                        <source src="https://files.catbox.moe/mpz1sp.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-title">USO DE FTP</div>
+                </div>
+                <div class="video-card">
+                    <video controls>
+                        <source src="https://files.catbox.moe/c0vigw.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-title">INSTALACIÓN DE TEMAS</div>
+                </div>
             </div>
         </section>
 
         <section style="text-align: center;">
             <div class="alert-box">
-                <p style="color: var(--accent-orange); font-weight: 800; font-size: 1.1rem;">⚠️ NOTA SOBRE ROOTZ Y VIKINGFILE</p>
-                <p style="color: white; margin-top: 10px;">
-                    Estos links están en <b>fase de prueba</b>. Es obligatorio mantener la aplicación en <b>segundo plano</b> y no cerrarla durante la descarga.
-                </p>
-                <p style="color: var(--neon-blue); margin-top: 15px; font-size: 0.85rem;">
-                    *Para URL, FTP y Temas: Obligatorio tener <b>Remote PKG Installer</b> abierto en tu PS4.
-                </p>
+                <p style="color: var(--accent-orange); font-weight: 800;">⚠️ IMPORTANTE (Rootz / Vikingfile)</p>
+                <p style="color: white; margin-top: 10px;">Mantener la app en <b>segundo plano</b> durante la prueba de estos links.</p>
+                <p style="color: var(--neon-blue); font-size: 0.8rem; margin-top: 10px;">*Remote PKG Installer debe estar abierto para URL, FTP y Temas.</p>
             </div>
             
             <h2 class="section-title">Descargas v1.3.0</h2>
             <div class="btn-grid">
                 <a href="https://www.mediafire.com/file/r0jg9ov3i6z4uc9/NOVAPS1.3.0.apk/file" target="_blank" class="btn btn-primary"><i class="fab fa-android"></i> ANDROID v1.3.0</a>
-                <a href="https://www.mediafire.com/file/t5jakffkat74g18/NOVAPSV1.3.0PC.rar/file" target="_blank" class="btn btn-pc"><i class="fas fa-desktop"></i> PC v1.3.0 (.RAR)</a>
+                <a href="https://www.mediafire.com/file/t5jakffkat74g18/NOVAPSV1.3.0PC.rar/file" target="_blank" class="btn btn-pc"><i class="fas fa-desktop"></i> PC v1.3.0</a>
             </div>
 
-            <div style="margin-top: 50px;">
-                <p style="color: #555; margin-bottom: 15px; font-weight: bold;">VERSIONES ANTERIORES</p>
+            <div style="margin-top: 40px; opacity: 0.6;">
+                <p style="font-size: 0.8rem; margin-bottom: 10px;">VERSIONES ANTERIORES</p>
                 <div class="btn-grid">
-                    <a href="https://www.mediafire.com/file/a9sblopzscjgq8y/NovaPSv1.2.0.apk/file" target="_blank" class="btn btn-old">NovaPS v1.2.0 APK</a>
-                    <a href="https://www.mediafire.com/file/m02qqd3i2mauzwu/NOVAPSV1.2.0PC.rar/file" target="_blank" class="btn btn-old">NovaPS v1.2.0 PC</a>
+                    <a href="https://www.mediafire.com/file/a9sblopzscjgq8y/NovaPSv1.2.0.apk/file" target="_blank" class="btn btn-old">APK v1.2.0</a>
+                    <a href="https://www.mediafire.com/file/m02qqd3i2mauzwu/NOVAPSV1.2.0PC.rar/file" target="_blank" class="btn btn-old">PC v1.2.0</a>
                 </div>
             </div>
 
-            <div class="btn-grid" style="margin-top: 60px;">
-                <a href="https://chat.whatsapp.com/Bu5pOwQloqV0kNwYnEMLmN" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
-                <a href="https://t.me/novapsnew" target="_blank" class="btn btn-tg"><i class="fab fa-telegram"></i> TELEGRAM</a>
+            <div class="btn-grid" style="margin-top: 50px;">
+                <a href="https://chat.whatsapp.com/Bu5pOwQloqV0kNwYnEMLmN" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/novapsnew" target="_blank" class="btn btn-tg"><i class="fab fa-telegram"></i></a>
             </div>
         </section>
     </div>
 
-    <footer style="padding: 60px; text-align: center; border-top: 1px solid #111; color: #444; font-size: 0.8rem;">
-        © 2026 NOVAPS DEV TEAM | <a href="https://novapsnew.github.io/Novaps/" style="color: #444;">SITIO OFICIAL</a>
+    <footer style="padding: 40px; text-align: center; color: #333; font-size: 0.7rem;">
+        © 2026 NOVAPS DEV | DESARROLLADO PARA LA COMUNIDAD
     </footer>
 </body>
 </html>
