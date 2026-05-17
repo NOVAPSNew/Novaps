@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaPS v1.3.1 | Sitio Oficial</title>
+    <title>NovaPS v1.3.2 | Sitio Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -30,7 +30,7 @@
         header { padding: 120px 20px 60px; text-align: center; }
         .logo { font-size: clamp(3.5rem, 10vw, 6rem); font-weight: 900; filter: drop-shadow(0 0 30px var(--ps-blue)); margin-bottom: 10px; }
         .logo span { color: var(--ps-blue); }
-        .version-tag { display: inline-block; background: linear-gradient(90deg, var(--ps-blue), var(--neon-blue)); padding: 8px 25px; border-radius: 50px; font-size: 0.8rem; font-weight: 900; margin-bottom: 20px; }
+        .version-tag { display: inline-block; background: linear-gradient(90deg, var(--ps-blue), var(--neon-blue)); padding: 8px 25px; border-radius: 50px; font-size: 0.8rem; font-weight: 900; margin-bottom: 20px; letter-spacing: 1px; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         section { padding: 60px 0; }
@@ -63,14 +63,29 @@
         .btn-grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
         .btn { padding: 20px 45px; border-radius: 18px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; text-transform: uppercase; font-size: 1rem; }
         .btn-primary { background: linear-gradient(135deg, var(--ps-blue), var(--ps-dark-blue)); color: white; box-shadow: 0 15px 30px rgba(0,114,206,0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 35px rgba(0,114,206,0.5); }
         .btn-pc { background: linear-gradient(135deg, #333, #000); color: white; border: 1px solid #444; }
-        .btn-old { background: #111; color: #666; border: 1px solid #222; font-size: 0.75rem; padding: 12px 25px; border-radius: 12px; }
+        .btn-pc:hover { transform: translateY(-3px); border-color: #666; }
+        
+        /* Nuevo diseño de historial de versiones */
+        .history-section { margin-top: 70px; padding: 30px; background: rgba(255,255,255,0.01); border-radius: 30px; border: 1px solid rgba(255,255,255,0.03); }
+        .history-title { color: #666; font-weight: 800; font-size: 0.9rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+        .history-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .history-card { background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
+        .history-card:hover { border-color: rgba(0, 114, 206, 0.3); background: rgba(0,0,0,0.6); }
+        .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
+        .history-version { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 900; color: #aaa; }
+        .history-badge { background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 8px; font-size: 0.7rem; color: #777; font-weight: bold; }
+        .history-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .btn-history-dl { padding: 10px; border-radius: 10px; background: #16161a; border: 1px solid #26262b; color: #999; text-decoration: none; font-size: 0.75rem; text-align: center; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
+        .btn-history-dl:hover { background: #222; color: #fff; border-color: #444; }
+
         .btn-wa { background: var(--whatsapp); color: white; }
         .btn-tg { background: var(--telegram); color: white; }
 
         .alert-box { background: rgba(255, 140, 0, 0.05); border: 1px solid var(--accent-orange); padding: 30px; border-radius: 30px; margin: 40px auto; max-width: 900px; text-align: center; }
 
-        @media (max-width: 768px) { .logo { font-size: 3.5rem; } .btn { width: 100%; justify-content: center; } }
+        @media (max-width: 768px) { .logo { font-size: 3.5rem; } .btn { width: 100%; justify-content: center; } .history-actions { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -78,7 +93,7 @@
     <div class="bg-dots"></div>
 
     <header>
-        <div class="version-tag">NUEVA v1.3.1</div>
+        <div class="version-tag">NUEVA v1.3.2</div>
         <div class="logo">NOVA<span>PS</span></div>
         <h2 style="color: var(--ps-blue); margin-top: 10px;">¡Ya disponible para Android y PC!</h2>
         <p style="color: #eee; max-width: 850px; margin: 20px auto; font-size: 1.1rem; line-height: 1.7;">
@@ -95,14 +110,14 @@
     <div class="container">
         
         <section>
-            <h2 class="section-title">Novedades v1.3.1</h2>
+            <h2 class="section-title">Novedades del Sistema</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <i class="fas fa-palette"></i>
                     <h3>Personalización</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Apartado de temas</li>
-                        <li><i class="fas fa-check"></i> Cambios en diseños</li>
+                        <li><i class="fas fa-check"></i> Apartado de temas mejorado</li>
+                        <li><i class="fas fa-check"></i> Cambios en diseños de interfaz</li>
                         <li><i class="fas fa-check"></i> Pantalla completa en IPTV</li>
                     </ul>
                 </div>
@@ -110,8 +125,8 @@
                     <i class="fas fa-bug"></i>
                     <h3>Estabilidad</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Solución de errores</li>
-                        <li><i class="fas fa-check"></i> Fix en apartados FTP</li>
+                        <li><i class="fas fa-check"></i> Solución de errores generales</li>
+                        <li><i class="fas fa-check"></i> Optimización en apartados FTP</li>
                     </ul>
                 </div>
             </div>
@@ -199,19 +214,49 @@
                 <p style="color: var(--neon-blue); font-size: 0.8rem; margin-top: 15px;">*Remote PKG Installer debe estar abierto para URL, FTP y Temas.</p>
             </div>
             
-            <h2 class="section-title">Descargas v1.3.1</h2>
+            <h2 class="section-title">Descargas v1.3.2</h2>
             <div class="btn-grid">
-                <a href="https://www.mediafire.com/file/muywj6jyzvor1vz/Novaps1.3.1.apk/file" target="_blank" class="btn btn-primary"><i class="fab fa-android"></i> ANDROID APK</a>
-                <a href="https://www.mediafire.com/file/43549kkodq1mrfj/Novaps1.3.1PC.zip/file" target="_blank" class="btn btn-pc"><i class="fas fa-desktop"></i> DESCARGAR PC</a>
+                <a href="https://www.mediafire.com/file/j840gnw57vdb9a7/Novaps1.3.2.apk/file" target="_blank" class="btn btn-primary"><i class="fab fa-android"></i> ANDROID APK</a>
+                <a href="https://www.mediafire.com/file/ssk5sz739xdgbxn/nova1.3.2Pc.zip/file" target="_blank" class="btn btn-pc"><i class="fas fa-desktop"></i> DESCARGAR PC</a>
             </div>
 
-            <div style="margin-top: 60px;">
-                <p style="color: #555; font-weight: 800; font-size: 0.8rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px;">Versiones Anteriores</p>
-                <div class="btn-grid">
-                    <a href="https://www.mediafire.com/file/r0jg9ov3i6z4uc9/NOVAPS1.3.0.apk/file" target="_blank" class="btn btn-old">NovaPS v1.3.0 APK</a>
-                    <a href="https://www.mediafire.com/file/t5jakffkat74g18/NOVAPSV1.3.0PC.rar/file" target="_blank" class="btn btn-old">NovaPS v1.3.0 PC</a>
-                    <a href="https://www.mediafire.com/file/a9sblopzscjgq8y/NovaPSv1.2.0.apk/file" target="_blank" class="btn btn-old">NovaPS v1.2.0 APK</a>
-                    <a href="https://www.mediafire.com/file/m02qqd3i2mauzwu/NOVAPSV1.2.0PC.rar/file" target="_blank" class="btn btn-old">NovaPS v1.2.0 PC</a>
+            <div class="history-section">
+                <p class="history-title">Historial de Versiones Anteriores</p>
+                <div class="history-grid">
+                    
+                    <div class="history-card">
+                        <div class="history-header">
+                            <span class="history-version">NovaPS v1.3.1</span>
+                            <span class="history-badge">Anterior</span>
+                        </div>
+                        <div class="history-actions">
+                            <a href="https://www.mediafire.com/file/muywj6jyzvor1vz/Novaps1.3.1.apk/file" target="_blank" class="btn btn-history-dl"><i class="fab fa-android"></i> APK</a>
+                            <a href="https://www.mediafire.com/file/43549kkodq1mrfj/Novaps1.3.1PC.zip/file" target="_blank" class="btn btn-history-dl"><i class="fas fa-desktop"></i> PC ZIP</a>
+                        </div>
+                    </div>
+
+                    <div class="history-card">
+                        <div class="history-header">
+                            <span class="history-version">NovaPS v1.3.0</span>
+                            <span class="history-badge">Estable</span>
+                        </div>
+                        <div class="history-actions">
+                            <a href="https://www.mediafire.com/file/r0jg9ov3i6z4uc9/NOVAPS1.3.0.apk/file" target="_blank" class="btn btn-history-dl"><i class="fab fa-android"></i> APK</a>
+                            <a href="https://www.mediafire.com/file/t5jakffkat74g18/NOVAPSV1.3.0PC.rar/file" target="_blank" class="btn btn-history-dl"><i class="fas fa-desktop"></i> PC RAR</a>
+                        </div>
+                    </div>
+
+                    <div class="history-card">
+                        <div class="history-header">
+                            <span class="history-version">NovaPS v1.2.0</span>
+                            <span class="history-badge">Legacy</span>
+                        </div>
+                        <div class="history-actions">
+                            <a href="https://www.mediafire.com/file/a9sblopzscjgq8y/NovaPSv1.2.0.apk/file" target="_blank" class="btn btn-history-dl"><i class="fab fa-android"></i> APK</a>
+                            <a href="https://www.mediafire.com/file/m02qqd3i2mauzwu/NOVAPSV1.2.0PC.rar/file" target="_blank" class="btn btn-history-dl"><i class="fas fa-desktop"></i> PC RAR</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
