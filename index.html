@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaPS v1.3.2 | Sitio Oficial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>NovaPS v1.4.0 | Sitio Oficial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -12,80 +13,92 @@
             --ps-dark-blue: #003791;
             --bg-dark: #020205;
             --accent-orange: #ff8c00;
-            --accent-green: #2ecc71;
-            --whatsapp: #25D366;
-            --telegram: #229ED9;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.08);
             --neon-blue: #00d2ff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg-dark); color: white; font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+        
+        body { 
+            background-color: var(--bg-dark); 
+            color: white; 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.5; 
+            overflow-x: hidden; 
+        }
+        
+        h1, h2, h3 { font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
 
-        .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 30%, rgba(0, 114, 206, 0.15), transparent 40%), radial-gradient(circle at 80% 70%, rgba(0, 55, 145, 0.2), transparent 40%); z-index: -1; }
-        .bg-dots { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 30px 30px; z-index: -1; }
+        .bg-glow { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: radial-gradient(circle at 20% 30%, rgba(0, 114, 206, 0.12), transparent 40%), radial-gradient(circle at 80% 70%, rgba(0, 55, 145, 0.15), transparent 40%); z-index: -1; }
+        .bg-dots { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 25px 25px; z-index: -1; }
 
-        header { padding: 120px 20px 60px; text-align: center; }
-        .logo { font-size: clamp(3.5rem, 10vw, 6rem); font-weight: 900; filter: drop-shadow(0 0 30px var(--ps-blue)); margin-bottom: 10px; }
+        header { padding: 80px 20px 40px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .logo { font-size: clamp(2.8rem, 8vw, 5rem); font-weight: 900; filter: drop-shadow(0 0 20px var(--ps-blue)); margin-bottom: 5px; }
         .logo span { color: var(--ps-blue); }
-        .version-tag { display: inline-block; background: linear-gradient(90deg, var(--ps-blue), var(--neon-blue)); padding: 8px 25px; border-radius: 50px; font-size: 0.8rem; font-weight: 900; margin-bottom: 20px; letter-spacing: 1px; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
+        .version-tag { display: inline-block; background: linear-gradient(90deg, var(--ps-blue), var(--neon-blue)); padding: 6px 20px; border-radius: 50px; font-size: 0.75rem; font-weight: 900; margin-bottom: 15px; box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        section { padding: 60px 0; }
-        .section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; }
-        .section-title::after { content: ''; display: block; width: 80px; height: 5px; background: var(--ps-blue); margin: 25px auto; border-radius: 10px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 35px 0; }
+        .section-title { text-align: center; margin-bottom: 35px; font-size: 1.6rem; color: #fff; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 4px; background: var(--ps-blue); margin: 15px auto; border-radius: 10px; }
 
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .feature-card { background: var(--glass); backdrop-filter: blur(15px); padding: 35px 25px; border-radius: 30px; border: 1px solid var(--glass-border); transition: 0.3s; }
-        .feature-card i { font-size: 2.5rem; color: var(--ps-blue); margin-bottom: 20px; }
-        .feature-card h3 { font-size: 1.1rem; margin-bottom: 15px; }
-        .feature-card ul { list-style: none; font-size: 0.95rem; color: #aaa; }
-        .feature-card li { margin-bottom: 10px; display: flex; gap: 10px; }
-        .feature-card li i { color: var(--accent-green); margin-top: 5px; font-size: 0.8rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+        .feature-card { background: var(--glass); backdrop-filter: blur(10px); padding: 25px; border-radius: 20px; border: 1px solid var(--glass-border); }
+        .feature-card i { font-size: 2rem; color: var(--neon-blue); margin-bottom: 15px; }
+        .feature-card h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .feature-card ul { list-style: none; font-size: 0.9rem; color: #ccc; }
+        .feature-card li { margin-bottom: 8px; display: flex; gap: 8px; align-items: flex-start; }
+        .feature-card li i { color: var(--neon-blue); margin-top: 4px; font-size: 0.75rem; }
 
-        .links-bar { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; font-weight: 800; font-size: 0.9rem; }
+        .links-bar { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 20px 0; font-weight: 700; font-size: 0.85rem; }
         .link-item { color: var(--neon-blue); }
 
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .video-card { background: #000; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); }
-        .video-card video { width: 100%; aspect-ratio: 16/9; background: #000; display: block; border-bottom: 2px solid var(--ps-blue); }
-        .video-title { padding: 15px; text-align: center; font-size: 0.85rem; font-weight: bold; background: rgba(255,255,255,0.02); }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .video-card { background: #000; border-radius: 15px; overflow: hidden; border: 1px solid var(--glass-border); }
+        .video-card video { width: 100%; aspect-ratio: 16/9; display: block; border-bottom: 2px solid var(--ps-blue); }
+        .video-title { padding: 12px; text-align: center; font-size: 0.8rem; font-weight: bold; background: rgba(255,255,255,0.01); }
 
-        .pc-preview { width: 100%; max-width: 900px; margin: 0 auto 40px; border-radius: 20px; border: 4px solid #1a1a1a; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .pc-preview img { width: 100%; display: block; }
+        .pc-preview { width: 100%; max-width: 800px; margin: 0 auto 30px; border-radius: 15px; border: 3px solid #1a1a1a; overflow: hidden; }
+        .pc-preview img { width: 100%; height: auto; display: block; }
         
-        .screenshot-grid { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; scroll-snap-type: x mandatory; scrollbar-width: none; }
-        .screenshot-card { min-width: 270px; aspect-ratio: 9/19; border-radius: 35px; border: 7px solid #1a1a1a; overflow: hidden; scroll-snap-align: center; background: #111; }
+        .screenshot-grid { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 15px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+        .screenshot-grid::-webkit-scrollbar { display: none; }
+        .screenshot-card { min-width: 220px; max-width: 240px; aspect-ratio: 9/19; border-radius: 20px; border: 5px solid #1a1a1a; overflow: hidden; scroll-snap-align: center; }
         .screenshot-card img { width: 100%; height: 100%; object-fit: cover; }
 
-        .btn-grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-        .btn { padding: 20px 45px; border-radius: 18px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; text-transform: uppercase; font-size: 1rem; }
-        .btn-primary { background: linear-gradient(135deg, var(--ps-blue), var(--ps-dark-blue)); color: white; box-shadow: 0 15px 30px rgba(0,114,206,0.3); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 35px rgba(0,114,206,0.5); }
-        .btn-pc { background: linear-gradient(135deg, #333, #000); color: white; border: 1px solid #444; }
-        .btn-pc:hover { transform: translateY(-3px); border-color: #666; }
+        .btn-grid { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        .btn { padding: 15px 35px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; transition: 0.2s; text-transform: uppercase; font-size: 0.9rem; }
+        .btn-primary { background: linear-gradient(135deg, var(--ps-blue), var(--ps-dark-blue)); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .btn-pc { background: #111; color: white; border: 1px solid #333; }
+        .btn-pc:hover { background: #222; border-color: #555; }
+        .btn-rpi { background: linear-gradient(135deg, #e67e22, #d35400); color: white; border: none; }
+        .btn-rpi:hover { transform: translateY(-2px); background: linear-gradient(135deg, #f39c12, #e67e22); }
         
-        /* Nuevo diseño de historial de versiones */
-        .history-section { margin-top: 70px; padding: 30px; background: rgba(255,255,255,0.01); border-radius: 30px; border: 1px solid rgba(255,255,255,0.03); }
-        .history-title { color: #666; font-weight: 800; font-size: 0.9rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
-        .history-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-        .history-card { background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
-        .history-card:hover { border-color: rgba(0, 114, 206, 0.3); background: rgba(0,0,0,0.6); }
-        .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
-        .history-version { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 900; color: #aaa; }
-        .history-badge { background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 8px; font-size: 0.7rem; color: #777; font-weight: bold; }
-        .history-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn-history-dl { padding: 10px; border-radius: 10px; background: #16161a; border: 1px solid #26262b; color: #999; text-decoration: none; font-size: 0.75rem; text-align: center; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
+        /* Historial elástico mejorado para albergar más tarjetas */
+        .history-section { margin-top: 50px; padding: 20px; background: rgba(255,255,255,0.01); border-radius: 20px; border: 1px solid rgba(255,255,255,0.03); }
+        .history-title { color: #555; font-weight: 700; font-size: 0.85rem; margin-bottom: 20px; text-transform: uppercase; text-align: center; }
+        .history-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; }
+        .history-card { background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 15px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between; }
+        .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
+        .history-version { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: #bbb; }
+        .history-badge { background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 50px; font-size: 0.65rem; color: #666; }
+        .history-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .btn-history-dl { padding: 8px; border-radius: 8px; background: #111; border: 1px solid #222; color: #999; text-decoration: none; font-size: 0.75rem; text-align: center; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 5px; }
         .btn-history-dl:hover { background: #222; color: #fff; border-color: #444; }
 
-        .btn-wa { background: var(--whatsapp); color: white; }
-        .btn-tg { background: var(--telegram); color: white; }
+        .btn-social { width: 50px; height: 50px; padding: 0; border-radius: 50%; justify-content: center; font-size: 1.3rem; }
+        .btn-wa { background: #25D366; color: white; }
+        .btn-tg { background: #229ED9; color: white; }
 
-        .alert-box { background: rgba(255, 140, 0, 0.05); border: 1px solid var(--accent-orange); padding: 30px; border-radius: 30px; margin: 40px auto; max-width: 900px; text-align: center; }
+        .alert-box { background: rgba(230, 126, 34, 0.04); border: 1px solid var(--accent-orange); padding: 25px; border-radius: 20px; margin: 30px auto; max-width: 800px; text-align: center; box-shadow: 0 0 20px rgba(230, 126, 34, 0.1); }
 
-        @media (max-width: 768px) { .logo { font-size: 3.5rem; } .btn { width: 100%; justify-content: center; } .history-actions { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) { 
+            header { padding-top: 50px; }
+            .btn:not(.btn-social) { width: 100%; justify-content: center; } 
+            .history-actions { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -93,95 +106,85 @@
     <div class="bg-dots"></div>
 
     <header>
-        <div class="version-tag">NUEVA v1.3.2</div>
+        <div class="version-tag">ACTUALIZACIÓN v1.4.0</div>
         <div class="logo">NOVA<span>PS</span></div>
-        <h2 style="color: var(--ps-blue); margin-top: 10px;">¡Ya disponible para Android y PC!</h2>
-        <p style="color: #eee; max-width: 850px; margin: 20px auto; font-size: 1.1rem; line-height: 1.7;">
-            App tipo navegador que envía enlaces de descarga a tu PS4 para instalar juegos (.pkg) directamente, <b>sin descargarlos en tu teléfono/PC o tener que pasarlo por USB</b>.
+        <h2 style="color: var(--neon-blue); font-size: 1.2rem; margin-top: 5px;">Ecosistema Sincronizado para PS4</h2>
+        <p style="color: #ccc; margin-top: 15px; font-size: 1rem;">
+            Envía enlaces de descarga (.pkg) directo a la consola, gestiona tus archivos mediante FTP o accede a la nueva Store de pruebas. Todo diseñado para funcionar de manera integrada.
         </p>
         <div class="links-bar">
-            <span class="link-item">⚡ Akirabox</span>
-            <span class="link-item">✅ Mediafire</span>
-            <span class="link-item">⚠️ Rootz (2do Plano)</span>
-            <span class="link-item">⚠️ Vikingfile (2do Plano)</span>
+            <span>⚡ Akirabox</span>
+            <span>✅ Mediafire</span>
+            <span>🚀 Soporte NovaPSRPI</span>
         </div>
     </header>
 
     <div class="container">
         
-        <section>
-            <h2 class="section-title">Novedades del Sistema</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-palette"></i>
-                    <h3>Personalización</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Apartado de temas mejorado</li>
-                        <li><i class="fas fa-check"></i> Cambios en diseños de interfaz</li>
-                        <li><i class="fas fa-check"></i> Pantalla completa en IPTV</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-bug"></i>
-                    <h3>Estabilidad</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Solución de errores generales</li>
-                        <li><i class="fas fa-check"></i> Optimización en apartados FTP</li>
-                    </ul>
-                </div>
+        <section style="text-align: center;">
+            <div class="alert-box">
+                <p style="color: var(--accent-orange); font-weight: 700; font-size: 0.95rem; font-family: 'Orbitron', sans-serif;">⚠️ REQUISITO OBLIGATORIO PARA LA v1.4.0</p>
+                <p style="color: #eee; margin-top: 8px; font-size: 0.9rem; line-height: 1.6;">
+                    Para esta versión es obligatorio descargar y usar el RPI de Nova. Lo puedes conseguir de manera directa desde la interfaz de <b>NovaPSAPP</b> o a través del siguiente enlace externo:
+                </p>
+                <a href="https://www.mediafire.com/file/qu385mhwxrebl2c/Novapsrpi.pkg/file" target="_blank" style="margin-top: 15px;" class="btn btn-rpi"><i class="fas fa-download"></i> DESCARGAR NOVAPSRPI.PKG</a>
             </div>
         </section>
 
         <section>
-            <h2 class="section-title">¿Qué hace la App?</h2>
+            <h2 class="section-title">Novedades v1.4.0</h2>
             <div class="features-grid">
+                
                 <div class="feature-card">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Funciones FTP</h3>
+                    <i class="fas fa-box-open"></i>
+                    <h3>Nuevo RPI: NovaPSRPI.pkg</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> FTP vía Remote PKG (Rápido)</li>
-                        <li><i class="fas fa-check"></i> FTP Normal integrado</li>
-                        <li><i class="fas fa-check"></i> Soporte Goldhen IP+Port</li>
+                        <li><i class="fas fa-circle-notch"></i> Permite gestionar los envíos directamente en segundo plano.</li>
+                        <li><i class="fas fa-circle-notch"></i> Permite hacer uso de la tienda en la web directo desde la ps4 (futura tienda).</li>
+                        <li><i class="fas fa-circle-notch"></i> De nuevo la opción de Binloader incorporada para el envío de payloads.</li>
                     </ul>
                 </div>
+
                 <div class="feature-card">
-                    <i class="fas fa-hdd"></i>
-                    <h3>Explorador HDD</h3>
+                    <i class="fas fa-folder-open"></i>
+                    <h3>Explorador FTP y Browser</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Copia archivos móvil/PC a PS4</li>
-                        <li><i class="fas fa-check"></i> Borra archivos en consola</li>
-                        <li><i class="fas fa-check"></i> Inyector de Payloads (.bin)</li>
+                        <li><i class="fas fa-circle-notch"></i> Nueva interfaz del explorar archivos en FTP.</li>
+                        <li><i class="fas fa-circle-notch"></i> Renombrar archivos y crear carpetas fácilmente.</li>
+                        <li><i class="fas fa-circle-notch"></i> Descargar archivos del ps4 al móvil de forma directa.</li>
+                        <li><i class="fas fa-circle-notch"></i> Copiar carpetas de consola a la consola o del móvil a la consola.</li>
                     </ul>
                 </div>
+
                 <div class="feature-card">
-                    <i class="fas fa-tasks"></i>
-                    <h3>Gestión</h3>
+                    <i class="fas fa-store"></i>
+                    <h3>Nova Web Store</h3>
                     <ul>
-                        <li><i class="fas fa-check"></i> Historial inteligente</li>
-                        <li><i class="fas fa-check"></i> Reanuda descargas</li>
+                        <li><i class="fas fa-circle-notch"></i> Tienda en fase de pruebas accesible directamente desde la PS4.</li>
+                        <li><i class="fas fa-circle-notch"></i> Descarga e instala contenido sin necesidad de enviar enlaces desde el móvil.</li>
+                        <li><i class="fas fa-circle-notch"></i> Servidores y enlaces de FPKGI.</li>
                     </ul>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-tv"></i>
-                    <h3>Nova IPTV</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Listas m3u personalizadas</li>
-                        <li><i class="fas fa-check"></i> TV pública en navegador PS4</li>
-                        <li><i class="fas fa-check"></i> Menú de ayuda completo</li>
-                    </ul>
-                </div>
+
+            </div>
+        </section>
+
+        <section style="text-align: center;">
+            <div class="alert-box" style="background: rgba(0, 114, 206, 0.05); border-color: var(--ps-blue); box-shadow: 0 0 20px rgba(0, 114, 206, 0.1);">
+                <p style="color: var(--neon-blue); font-weight: 700; font-size: 0.9rem; font-family: 'Orbitron', sans-serif;">🏪 ENLACE DE LA STORE EN EL NAVEGADOR DE PS4</p>
+                <a href="https://novaps4.gamer.gd/" target="_blank" style="color: white; display: inline-block; margin-top: 10px; font-size: 1.1rem; font-weight: bold; text-decoration: none; border-bottom: 1px dashed var(--neon-blue);">https://novaps4.gamer.gd/</a>
             </div>
         </section>
 
         <section>
             <h2 class="section-title">Interfaz del Sistema</h2>
             <div class="pc-preview">
-                <img src="assets/img/pc.png" alt="Vista PC">
+                <img src="assets/img/pc.png" alt="Interfaz PC">
             </div>
             <div class="screenshot-grid">
-                <div class="screenshot-card"><img src="assets/img/captura1.png"></div>
-                <div class="screenshot-card"><img src="assets/img/captura2.png"></div>
-                <div class="screenshot-card"><img src="assets/img/captura3.png"></div>
+                <div class="screenshot-card"><img src="assets/img/captura1.png" alt="Captura 1"></div>
+                <div class="screenshot-card"><img src="assets/img/captura2.png" alt="Captura 2"></div>
+                <div class="screenshot-card"><img src="assets/img/captura3.png" alt="Captura 3"></div>
             </div>
         </section>
 
@@ -189,41 +192,48 @@
             <h2 class="section-title">Guías en Video</h2>
             <div class="video-grid">
                 <div class="video-card">
-                    <video controls preload="metadata"><source src="https://files.catbox.moe/nfid30.mp4" type="video/mp4"></video>
-                    <div class="video-title">DESCARGAR REMOTE PKG</div>
+                    <video controls preload="metadata"><source src="https://files.catbox.moe/i2dlod.mp4" type="video/mp4"></video>
+                    <div class="video-title">COMO DESCARGAR CON AKIRABOX</div>
                 </div>
                 <div class="video-card">
-                    <video controls preload="metadata"><source src="https://files.catbox.moe/rtjark.mp4" type="video/mp4"></video>
-                    <div class="video-title">USO DE APARTADO URL</div>
+                    <video controls preload="metadata"><source src="https://files.catbox.moe/aaavc2.mp4" type="video/mp4"></video>
+                    <div class="video-title">DESCARGAR NOVA RPI</div>
                 </div>
                 <div class="video-card">
-                    <video controls preload="metadata"><source src="https://files.catbox.moe/mpz1sp.mp4" type="video/mp4"></video>
-                    <div class="video-title">USO DE FTP</div>
+                    <video controls preload="metadata"><source src="https://files.catbox.moe/hu2yfc.mp4" type="video/mp4"></video>
+                    <div class="video-title">DESCARGAR TEMAS</div>
                 </div>
                 <div class="video-card">
-                    <video controls preload="metadata"><source src="https://files.catbox.moe/c0vigw.mp4" type="video/mp4"></video>
-                    <div class="video-title">INSTALACIÓN DE TEMAS</div>
+                    <video controls preload="metadata"><source src="https://files.catbox.moe/u3u5t2.mp4" type="video/mp4"></video>
+                    <div class="video-title">DESCARGAR DESDE STORE (PRUEBA)</div>
                 </div>
             </div>
         </section>
 
         <section style="text-align: center;">
-            <div class="alert-box">
-                <p style="color: var(--accent-orange); font-weight: 800;">📌 NOTA IMPORTANTE (Rootz / Vikingfile)</p>
-                <p style="color: white; margin-top: 10px;">Es obligatorio tener la <b>aplicación en segundo plano</b> y no cerrarla si usas estos servidores (Links en fase de prueba).</p>
-                <p style="color: var(--neon-blue); font-size: 0.8rem; margin-top: 15px;">*Remote PKG Installer debe estar abierto para URL, FTP y Temas.</p>
-            </div>
-            
-            <h2 class="section-title">Descargas v1.3.2</h2>
+            <h2 class="section-title">Descargas v1.4.0</h2>
             <div class="btn-grid">
-                <a href="https://www.mediafire.com/file/j840gnw57vdb9a7/Novaps1.3.2.apk/file" target="_blank" class="btn btn-primary"><i class="fab fa-android"></i> ANDROID APK</a>
-                <a href="https://www.mediafire.com/file/ssk5sz739xdgbxn/nova1.3.2Pc.zip/file" target="_blank" class="btn btn-pc"><i class="fas fa-desktop"></i> DESCARGAR PC</a>
+                <a href="https://www.mediafire.com/file/mznjc34xjhvy5qa/novaps1.4.0.apk/file" target="_blank" class="btn btn-primary"><i class="fab fa-android"></i> ANDROID APK</a>
+                <a href="https://www.mediafire.com/file/ew5sdlorhkqfio5/novapc1.4.0.zip/file" target="_blank" class="btn btn-pc"><i class="fas fa-desktop"></i> DESCARGAR PC</a>
             </div>
 
             <div class="history-section">
                 <p class="history-title">Historial de Versiones Anteriores</p>
                 <div class="history-grid">
                     
+                    <!-- v1.3.2 -->
+                    <div class="history-card">
+                        <div class="history-header">
+                            <span class="history-version">NovaPS v1.3.2</span>
+                            <span class="history-badge">Anterior</span>
+                        </div>
+                        <div class="history-actions">
+                            <a href="https://www.mediafire.com/file/j840gnw57vdb9a7/Novaps1.3.2.apk/file" target="_blank" class="btn btn-history-dl"><i class="fab fa-android"></i> APK</a>
+                            <a href="https://www.mediafire.com/file/ssk5sz739xdgbxn/nova1.3.2Pc.zip/file" target="_blank" class="btn btn-history-dl"><i class="fas fa-desktop"></i> PC ZIP</a>
+                        </div>
+                    </div>
+
+                    <!-- v1.3.1 -->
                     <div class="history-card">
                         <div class="history-header">
                             <span class="history-version">NovaPS v1.3.1</span>
@@ -235,6 +245,7 @@
                         </div>
                     </div>
 
+                    <!-- v1.3.0 -->
                     <div class="history-card">
                         <div class="history-header">
                             <span class="history-version">NovaPS v1.3.0</span>
@@ -246,6 +257,7 @@
                         </div>
                     </div>
 
+                    <!-- v1.2.0 -->
                     <div class="history-card">
                         <div class="history-header">
                             <span class="history-version">NovaPS v1.2.0</span>
@@ -257,17 +269,29 @@
                         </div>
                     </div>
 
+                    <!-- v1.1.0 -->
+                    <div class="history-card">
+                        <div class="history-header">
+                            <span class="history-version">NovaPS v1.1.0</span>
+                            <span class="history-badge">Legacy</span>
+                        </div>
+                        <div class="history-actions">
+                            <a href="#" target="_blank" class="btn btn-history-dl"><i class="fab fa-android"></i> APK</a>
+                            <a href="#" target="_blank" class="btn btn-history-dl"><i class="fas fa-desktop"></i> PC ZIP</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="btn-grid" style="margin-top: 50px;">
-                <a href="https://chat.whatsapp.com/Bu5pOwQloqV0kNwYnEMLmN" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://t.me/novapsnew" target="_blank" class="btn btn-tg"><i class="fab fa-telegram"></i></a>
+            <div class="btn-grid" style="margin-top: 40px;">
+                <a href="https://chat.whatsapp.com/Bu5pOwQloqV0kNwYnEMLmN" target="_blank" class="btn btn-social btn-wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/novapsnew" target="_blank" class="btn btn-social btn-tg"><i class="fab fa-telegram"></i></a>
             </div>
         </section>
     </div>
 
-    <footer style="padding: 60px; text-align: center; color: #444; font-size: 0.7rem;">
+    <footer style="padding: 40px; text-align: center; color: #333; font-size: 0.7rem; font-weight: bold;">
         © 2026 NOVAPS 
     </footer>
 </body>
