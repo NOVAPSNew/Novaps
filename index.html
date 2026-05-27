@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaPS v1.4.0 | Sitio Oficial</title>
+    <title>NovaPS v1.4.1 | Sitio Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -40,8 +39,9 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         section { padding: 35px 0; }
-        .section-title { text-align: center; margin-bottom: 35px; font-size: 1.6rem; color: #fff; }
+        .section-title { text-align: center; margin-bottom: 25px; font-size: 1.6rem; color: #fff; }
         .section-title::after { content: ''; display: block; width: 50px; height: 4px; background: var(--ps-blue); margin: 15px auto; border-radius: 10px; }
+        .subsection-title { font-size: 1.1rem; color: var(--neon-blue); margin-bottom: 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
 
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
         .feature-card { background: var(--glass); backdrop-filter: blur(10px); padding: 25px; border-radius: 20px; border: 1px solid var(--glass-border); }
@@ -54,10 +54,11 @@
         .links-bar { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 20px 0; font-weight: 700; font-size: 0.85rem; }
         .link-item { color: var(--neon-blue); }
 
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-        .video-card { background: #000; border-radius: 15px; overflow: hidden; border: 1px solid var(--glass-border); }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .video-card { background: #000; border-radius: 15px; overflow: hidden; border: 1px solid var(--glass-border); display: flex; flex-direction: column; justify-content: space-between; }
         .video-card video { width: 100%; aspect-ratio: 16/9; display: block; border-bottom: 2px solid var(--ps-blue); }
-        .video-title { padding: 12px; text-align: center; font-size: 0.8rem; font-weight: bold; background: rgba(255,255,255,0.01); }
+        .video-card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; border-bottom: 2px solid var(--ps-blue); }
+        .video-title { padding: 12px; text-align: center; font-size: 0.8rem; font-weight: bold; background: rgba(255,255,255,0.01); flex-grow: 1; display: flex; align-items: center; justify-content: center; }
 
         .pc-preview { width: 100%; max-width: 800px; margin: 0 auto 30px; border-radius: 15px; border: 3px solid #1a1a1a; overflow: hidden; }
         .pc-preview img { width: 100%; height: auto; display: block; }
@@ -76,7 +77,6 @@
         .btn-rpi { background: linear-gradient(135deg, #e67e22, #d35400); color: white; border: none; }
         .btn-rpi:hover { transform: translateY(-2px); background: linear-gradient(135deg, #f39c12, #e67e22); }
         
-        /* Historial elástico mejorado para albergar más tarjetas */
         .history-section { margin-top: 50px; padding: 20px; background: rgba(255,255,255,0.01); border-radius: 20px; border: 1px solid rgba(255,255,255,0.03); }
         .history-title { color: #555; font-weight: 700; font-size: 0.85rem; margin-bottom: 20px; text-transform: uppercase; text-align: center; }
         .history-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; }
@@ -106,7 +106,7 @@
     <div class="bg-dots"></div>
 
     <header>
-        <div class="version-tag">ACTUALIZACIÓN v1.4.0</div>
+        <div class="version-tag">ACTUALIZACIÓN v1.4.1</div>
         <div class="logo">NOVA<span>PS</span></div>
         <h2 style="color: var(--neon-blue); font-size: 1.2rem; margin-top: 5px;">Ecosistema Sincronizado para PS4</h2>
         <p style="color: #ccc; margin-top: 15px; font-size: 1rem;">
@@ -123,7 +123,7 @@
         
         <section style="text-align: center;">
             <div class="alert-box">
-                <p style="color: var(--accent-orange); font-weight: 700; font-size: 0.95rem; font-family: 'Orbitron', sans-serif;">⚠️ REQUISITO OBLIGATORIO PARA LA v1.4.0</p>
+                <p style="color: var(--accent-orange); font-weight: 700; font-size: 0.95rem; font-family: 'Orbitron', sans-serif;">⚠️ REQUISITO OBLIGATORIO PARA LA v1.4.1</p>
                 <p style="color: #eee; margin-top: 8px; font-size: 0.9rem; line-height: 1.6;">
                     Para esta versión es obligatorio descargar y usar el RPI de Nova. Lo puedes conseguir de manera directa desde la interfaz de <b>NovaPSAPP</b> o a través del siguiente enlace externo:
                 </p>
@@ -132,7 +132,7 @@
         </section>
 
         <section>
-            <h2 class="section-title">Novedades v1.4.0</h2>
+            <h2 class="section-title">Novedades v1.4.1</h2>
             <div class="features-grid">
                 
                 <div class="feature-card">
@@ -190,38 +190,70 @@
 
         <section>
             <h2 class="section-title">Guías en Video</h2>
+            
+            <h3 class="subsection-title">Tutoriales con novapsrpi.pkg</h3>
             <div class="video-grid">
                 <div class="video-card">
                     <video controls preload="metadata"><source src="https://files.catbox.moe/i2dlod.mp4" type="video/mp4"></video>
-                    <div class="video-title">COMO DESCARGAR CON AKIRABOX</div>
+                    <div class="video-title">COMO DESCARGAR CON AKIRABOX (NOVAPSRPI)</div>
                 </div>
                 <div class="video-card">
                     <video controls preload="metadata"><source src="https://files.catbox.moe/aaavc2.mp4" type="video/mp4"></video>
-                    <div class="video-title">DESCARGAR NOVA RPI</div>
+                    <div class="video-title">DESCARGAR NOVA RPI (NOVAPSRPI)</div>
                 </div>
                 <div class="video-card">
                     <video controls preload="metadata"><source src="https://files.catbox.moe/hu2yfc.mp4" type="video/mp4"></video>
-                    <div class="video-title">DESCARGAR TEMAS</div>
+                    <div class="video-title">DESCARGAR TEMAS (NOVAPSRPI)</div>
                 </div>
                 <div class="video-card">
                     <video controls preload="metadata"><source src="https://files.catbox.moe/u3u5t2.mp4" type="video/mp4"></video>
-                    <div class="video-title">DESCARGAR DESDE STORE (PRUEBA)</div>
+                    <div class="video-title">DESCARGAR DESDE STORE - PRUEBA (NOVAPSRPI)</div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Tutoriales con Remote pkg installer</h3>
+            <div class="video-grid">
+                <div class="video-card">
+                    <video controls preload="metadata"><source src="https://files.catbox.moe/nfid30.mp4" type="video/mp4"></video>
+                    <div class="video-title">DESCARGA RPI (REMOTE PKG)</div>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://drive.google.com/file/d/1dFgKj9K4mjf1D-CbP9OG-CFJAmseu2Ud/preview" allow="autoplay"></iframe>
+                    <div class="video-title">TUTORIAL COMPLETO (REMOTE PKG)</div>
+                </div>
+                <div class="video-card">
+                    <video controls preload="metadata"><source src="https://files.catbox.moe/rtjark.mp4" type="video/mp4"></video>
+                    <div class="video-title">CÓMO USAR URL (REMOTE PKG)</div>
+                </div>
+                <div class="video-card">
+                    <video controls preload="metadata"><source src="https://files.catbox.moe/mpz1sp.mp4" type="video/mp4"></video>
+                    <div class="video-title">USAR FTP (REMOTE PKG)</div>
                 </div>
             </div>
         </section>
 
         <section style="text-align: center;">
-            <h2 class="section-title">Descargas v1.4.0</h2>
+            <h2 class="section-title">Descargas v1.4.1</h2>
             <div class="btn-grid">
-                <a href="https://www.mediafire.com/file/mznjc34xjhvy5qa/novaps1.4.0.apk/file" target="_blank" class="btn btn-primary"><i class="fab fa-android"></i> ANDROID APK</a>
-                <a href="https://www.mediafire.com/file/ew5sdlorhkqfio5/novapc1.4.0.zip/file" target="_blank" class="btn btn-pc"><i class="fas fa-desktop"></i> DESCARGAR PC</a>
+                <a href="https://www.mediafire.com/file/mre8gph2v8twav5/novaps1.4.1.apk/file" target="_blank" class="btn btn-primary"><i class="fab fa-android"></i> ANDROID APK</a>
+                <a href="https://www.mediafire.com/file/64cs982em2q06iz/novaps1.4.1.zip/file" target="_blank" class="btn btn-pc"><i class="fas fa-desktop"></i> DESCARGAR PC</a>
             </div>
 
             <div class="history-section">
                 <p class="history-title">Historial de Versiones Anteriores</p>
                 <div class="history-grid">
                     
-                    <!-- v1.3.2 -->
+                    <div class="history-card">
+                        <div class="history-header">
+                            <span class="history-version">NovaPS v1.4.0</span>
+                            <span class="history-badge">Anterior</span>
+                        </div>
+                        <div class="history-actions">
+                            <a href="https://www.mediafire.com/file/mznjc34xjhvy5qa/novaps1.4.0.apk/file" target="_blank" class="btn btn-history-dl"><i class="fab fa-android"></i> APK</a>
+                            <a href="https://www.mediafire.com/file/ew5sdlorhkqfio5/novapc1.4.0.zip/file" target="_blank" class="btn btn-history-dl"><i class="fas fa-desktop"></i> PC ZIP</a>
+                        </div>
+                    </div>
+
                     <div class="history-card">
                         <div class="history-header">
                             <span class="history-version">NovaPS v1.3.2</span>
@@ -233,7 +265,6 @@
                         </div>
                     </div>
 
-                    <!-- v1.3.1 -->
                     <div class="history-card">
                         <div class="history-header">
                             <span class="history-version">NovaPS v1.3.1</span>
@@ -245,7 +276,6 @@
                         </div>
                     </div>
 
-                    <!-- v1.3.0 -->
                     <div class="history-card">
                         <div class="history-header">
                             <span class="history-version">NovaPS v1.3.0</span>
@@ -257,7 +287,6 @@
                         </div>
                     </div>
 
-                    <!-- v1.2.0 -->
                     <div class="history-card">
                         <div class="history-header">
                             <span class="history-version">NovaPS v1.2.0</span>
@@ -269,7 +298,6 @@
                         </div>
                     </div>
 
-                    <!-- v1.1.0 -->
                     <div class="history-card">
                         <div class="history-header">
                             <span class="history-version">NovaPS v1.1.0</span>
@@ -295,4 +323,4 @@
         © 2026 NOVAPS 
     </footer>
 </body>
-</html>
+                                </html>
